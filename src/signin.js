@@ -16,7 +16,7 @@ function Signin({setgetin,setregist,buff}){
     }
     const click=()=>{
         
-        fetch('http://localhost:3000/signin',{
+        fetch('https://node-server-1ag1.onrender.com/signin',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
