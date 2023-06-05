@@ -1,0 +1,25 @@
+/* .animate__animated.animate__backInUp{
+    --animate-duration: 1s;
+    
+}
+.II{
+    --animate-delay:10s;
+} */
+/* #recselection{
+    top: 150px;
+} */
+
+.animation{
+    
+    animation-name:slide;
+    animation-duration: .2s;
+    animation-timing-function: ease-in;
+    
+}
+.parent{
+    overflow: hidden;
+}
+@keyframes slide{
+    0%{left:-100px;}
+    100%{left:0px;}
+}
