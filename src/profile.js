@@ -2,7 +2,7 @@ import React from "react";
 import usericon from "./imgs/user.png";
 import Feeds from "./feeds";
 
-function Profile({feed}){
+function Profile({name,feed}){
     return(
         <div className="bg-white">
             
@@ -50,7 +50,7 @@ function Profile({feed}){
                     </div>
                 </div>
                 <div className="pb-5">
-                <Feeds feed={feed}/>
+                <Feeds uname={name} feed={feed} />
                 </div>
                 
             </div>

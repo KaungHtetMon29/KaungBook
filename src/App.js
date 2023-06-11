@@ -49,15 +49,16 @@ function App() {
   })
   const [user,setuser]=useState({
     name:"",
-    feeds:"bruh"
+    feeds:[]
   });
   // const[feeds,setfeeds]=useState(true);
   // const[noti,setnoti]=useState(false);
   // const[msg,setmsg]=useState(false);
   // const[profile,setprofile]=useState(false);
-  const bufferuser=(name,feeds)=>{
-    user.name=name;
-    user.feeds=feeds
+  const bufferuser=(obj)=>{
+    user.name=obj[0].name;
+    obj.map((f)=>{user.feeds.push(f)})
+    feedmode();
   }
   
   const feedmode=()=>{
@@ -97,17 +98,17 @@ function App() {
     msgchange(false);
     profilechange(false);
    }
-  useEffect(()=>{
-    fetch('http://localhost:3000/profile',{
-      method:'get',
-      headers:{'content-type':'application/Json'},
-    })
-    .then((respond)=>respond.json())
-    .then ((data)=>console.log(data))
-    .catch((err)=>{
-      console.log(err);
-    })
-  },[])
+  // useEffect(()=>{
+  //   fetch('http://localhost:3000/profile',{
+  //     method:'get',
+  //     headers:{'content-type':'application/Json'},
+  //   })
+  //   .then((respond)=>respond.json())
+  //   .then ((data)=>console.log(data))
+  //   .catch((err)=>{
+  //     console.log(err);
+  //   })
+  // },[])
 
   
   // const[getin,setgetin]=useState(false);
@@ -131,7 +132,7 @@ function App() {
           <div>
           {
             feeds===true?
-            <Feeds uname={user.name} feed={user.feeds} profile={profmode}/>:notification===true?<Notifeed/>:msg===true?<Chatheadfeed/>:profile===true?<Profile feed={user.feeds}/>:post===true?<Postscreen/>:<Feeds feed={user.feeds} uname={user.name}/>
+            <Feeds id={user.id} uname={user.name} feed={user.feeds} profile={profmode}/>:notification===true?<Notifeed/>:msg===true?<Chatheadfeed/>:profile===true?<Profile name={user.name} feed={user.feeds}/>:post===true?<Postscreen/>:<Feeds feed={user.feeds} uname={user.name}/>
             
           }
           </div>

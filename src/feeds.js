@@ -3,11 +3,16 @@ import Feedcard from "./Feedcard";
 
 
 function Feeds({uname,feed,profile}){
-    const arr=[feed,feed,feed,feed,feed,feed,feed]
     console.log(uname);
     return(
         <div className="mb-72 ">
-            <div className="">
+            {   
+                
+                feed.map((f)=>{
+                    return <Feedcard obj={f} profile={profile} key={f.id}/>;
+                })
+            }
+            {/* <div className="">
                 <Feedcard name={uname} feed={feed} profile={profile} />
             </div>
             <div className="">
@@ -21,7 +26,7 @@ function Feeds({uname,feed,profile}){
             </div>
             <div className="">
                 <Feedcard name={uname} feed={feed} profile={profile}/>
-            </div>
+            </div> */}
             {/* {
                 arr.map((arr)=>(
                     <Feedcard feed={arr}/>

@@ -18,7 +18,7 @@ function Regist({setgetin,setregist,buff}){
     const click=()=>{
         buff(register.name);
         setgetin();
-        fetch('https://node-server-1ag1.onrender.com/register',{
+        fetch('http://localhost:3000/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

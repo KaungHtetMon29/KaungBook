@@ -8,7 +8,7 @@ import plus from "./imgs/plus.png"
 import './feedcardanimation.css'
 
 
-function Feedcard({name,feed,profile}){
+function Feedcard({obj,profile}){
     const [enable,setenable]=useState(false);
     const [cmt,setcmt]=useState(false);
     const [height,setheight]=useState(0);
@@ -39,7 +39,7 @@ function Feedcard({name,feed,profile}){
                 <div ref={dh}>
                     <div onClick={profile} className="lg:pt-4 lg:pb-4 lg:px-5 lg:border-b-2 border-gray-300 sm:pt-2 sm:pb-4 sm:px-2 flex items-center lg:text-4xl sm:text-xl">
                         <div ><img src={usericon} className="w-20 lg:pr-6 sm:pr-2 ..."/></div>
-                        <div className="lg:pr-6 sm:pr-2 ..."><p>{name}</p></div>
+                        <div className="lg:pr-6 sm:pr-2 ..."><p>{obj.name}</p></div>
                         {/* <ul className="list-none m-0 lg:text-4xl sm:text-xl ...">
                             <li className="inline lg:pr-6 sm:pr-2 ... ">Img</li>
                             <li className="inline lg:pr-6 sm:pr-2 ...">Name</li>
@@ -60,14 +60,14 @@ function Feedcard({name,feed,profile}){
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aspernatur quo sunt, tempora voluptatum numquam iste quam natus velit corporis voluptatibus est obcaecati voluptates amet recusandae minima rem porro aliquid?
                         </p> */}
                         <p className="leading-10 ...">
-                            {feed}
+                            {obj.status}
                         </p>
                         
                     </div>
                     <div className="lg:px-5 sm:px-2 lg:pb-4 sm:pb-2 lg:text-2xl sm:text-lg flex">
                         <div className="flex items-center grow"><div><img src={like} className="w-8 ..."/></div>
                             <div><img src={haha} className="w-8 ..."/></div>
-                            <p className="pl-4">kaung and 4 other</p>
+                            <p className="pl-4">{Number(obj.lke+obj.haha+obj.love)} reacted</p>
                         </div>
                         <div className="flex items-center sm:px-2 lg:px-5">
                             <p className="pr-4">0 comment</p>

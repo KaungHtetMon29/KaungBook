@@ -15,8 +15,8 @@ function Signin({setgetin,setregist,buff}){
         signin.pw=e.target.value;
     }
     const click=()=>{
-        
-        fetch('https://node-server-1ag1.onrender.com/signin',{
+        //node-server-1ag1.onrender.com
+        fetch('http://localhost:3000/signin',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -25,7 +25,15 @@ function Signin({setgetin,setregist,buff}){
             })
         }).then(Response=>Response.json()).then(data=>
             {if(data.status===true){
-                setgetin();setregist();buff(data.name,data.feed)
+                setgetin();setregist();
+                fetch('http://localhost:3000/profile',{
+                    method:'post',
+                    headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({
+                        name:data.name,
+                    })
+                }).then(res=>res.json("good")).then(pdata=>buff(pdata.data) )
+                
             }else{
                 alert("Please check name and password ");window.location.reload(true)
             }
