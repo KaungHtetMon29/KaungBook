@@ -2,11 +2,11 @@ import React from "react";
 import Feedcard from "./Feedcard";
 
 
-function Feeds({uname,feed,profile}){
-    console.log(uname);
+function Feeds({feed,profile}){
     return(
         <div className="mb-72 ">
             {   
+                
                 
                 feed.map((f)=>{
                     return <Feedcard obj={f} profile={profile} key={f.id}/>;

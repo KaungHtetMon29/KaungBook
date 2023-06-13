@@ -51,14 +51,26 @@ function App() {
     name:"",
     feeds:[]
   });
+  const [mode,setmode]=useState("");
+  const [friends,setfriends]=useState([]);
   // const[feeds,setfeeds]=useState(true);
   // const[noti,setnoti]=useState(false);
   // const[msg,setmsg]=useState(false);
   // const[profile,setprofile]=useState(false);
+  const modechg=(m)=>{
+    setmode(m);
+  }
   const bufferuser=(obj)=>{
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
     feedmode();
+  }
+  const bufferfriposts=(obj)=>{
+    obj.map(f=>{
+      friends.push(f)
+    })
+    
+    console.log(friends);
   }
   
   const feedmode=()=>{
@@ -120,6 +132,16 @@ function App() {
     dispatch(changeregist(!regist));
     console.log(regist,getin);
   }
+  const chg=(obj)=>{
+    switch (obj){
+      case "home":return <Feeds feed={friends} profile={profmode}/>;
+      case "noti":return <Notifeed/>;
+      case "post":return <Postscreen name={user.name} chg={modechg}/>;
+      case "mail":return <Chatheadfeed/>;
+      case "prof":return <Profile name={user.name} feed={user.feeds}/>;
+      default:return <Feeds feed={friends} profile={profmode}/>;
+    }
+  }
  
   return (
     <div>
@@ -130,14 +152,16 @@ function App() {
         <div>
           
           <div>
+            
           {
-            feeds===true?
-            <Feeds id={user.id} uname={user.name} feed={user.feeds} profile={profmode}/>:notification===true?<Notifeed/>:msg===true?<Chatheadfeed/>:profile===true?<Profile name={user.name} feed={user.feeds}/>:post===true?<Postscreen/>:<Feeds feed={user.feeds} uname={user.name}/>
+            chg(mode)
+            // feeds===true?
+            // <Feeds feed={friends} profile={profmode}/>:notification===true?<Notifeed/>:msg===true?<Chatheadfeed/>:profile===true?<Profile name={user.name} feed={user.feeds}/>:post===true?<Postscreen/>:<Feeds feed={friends}/>
             
           }
           </div>
           
-          <Modebar profmode={profmode} feedmode={feedmode} msgmode={msgmode} notimode={notimode} postmode={postactive}/>
+          <Modebar profmode={profmode} feedmode={feedmode} msgmode={msgmode} notimode={notimode} postmode={postactive} modechg={modechg}/>
         </div>
           
         // <div>
@@ -161,7 +185,7 @@ function App() {
         regist?
         <Regist setgetin={gfunction} setregist={registfunction} buff={bufferuser}/>:
         <div>
-        <Signin setgetin={gfunction} setregist={registfunction} buff={bufferuser}/>
+        <Signin setgetin={gfunction} setregist={registfunction} buff={bufferuser} friposts={bufferfriposts}/>
         </div>
         
       }

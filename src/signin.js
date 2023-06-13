@@ -3,7 +3,7 @@ import 'animate.css'
 import './siginin.css'
 import usericon from "./imgs/search.png";
 
-function Signin({setgetin,setregist,buff}){
+function Signin({setgetin,setregist,buff,friposts}){
     const [signin,setsignin]=useState({
         name:"",
         pw:""
@@ -32,7 +32,21 @@ function Signin({setgetin,setregist,buff}){
                     body:JSON.stringify({
                         name:data.name,
                     })
-                }).then(res=>res.json("good")).then(pdata=>buff(pdata.data) )
+                }).then(res=>res.json()).then(pdata=>
+                    fetch('http://localhost:3000/friposts',{
+                        method:'post',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify({
+                            name:signin.name,
+                        })
+                    }).then(res=>res.json("good")).then(
+                        (fposts)=>{
+                            buff(pdata.data)
+                            friposts(fposts)
+                        }
+                        
+                    )
+                     )
                 
             }else{
                 alert("Please check name and password ");window.location.reload(true)
