@@ -17,6 +17,7 @@ function Navbar({getin,setgetin,regist,name}){
     const ef=()=>{
         changenav(!enable);
         setgetin();regist();
+        localStorage.removeItem('getin');
     }
     // const Feedctrl=()=>{
     //     setfeed(!feed);

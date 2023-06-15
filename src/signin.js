@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import 'animate.css'
 import './siginin.css'
 import usericon from "./imgs/search.png";
@@ -8,12 +8,20 @@ function Signin({setgetin,setregist,buff,friposts}){
         name:"",
         pw:""
     });
+
+    const [dbbuff,setdbbuff]=useState({
+        name:""
+    })
     const onEmailchange=(e)=>{
         signin.name=e.target.value;
     }
     const onPwchange=(e)=>{
         signin.pw=e.target.value;
     }
+
+
+    
+
     const click=()=>{
         //node-server-1ag1.onrender.com
         fetch('http://localhost:3000/signin',{
@@ -25,7 +33,12 @@ function Signin({setgetin,setregist,buff,friposts}){
             })
         }).then(Response=>Response.json()).then(data=>
             {if(data.status===true){
-                setgetin();setregist();
+                setgetin();setregist();dbbuff.name=data.name;
+                console.log(dbbuff)
+
+                localStorage.setItem('getin','true');
+                localStorage.setItem('username',dbbuff.name)
+                localStorage.setItem('signinname',signin.name);
                 fetch('http://localhost:3000/profile',{
                     method:'post',
                     headers:{'Content-Type':'application/json'},
@@ -54,6 +67,36 @@ function Signin({setgetin,setregist,buff,friposts}){
             }
             )
     }
+    useEffect(()=>{
+        const isloggedin=localStorage.getItem('getin');
+        if(isloggedin==='true'){
+            dbbuff.name=localStorage.getItem('username');
+            signin.name=localStorage.getItem('signinname');
+            console.log(signin);
+            fetch('http://localhost:3000/profile',{
+                    method:'post',
+                    headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({
+                        name:dbbuff.name,
+                        
+                    })
+                }).then(res=>res.json()).then(pdata=>
+                    fetch('http://localhost:3000/friposts',{
+                        method:'post',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify({
+                            name:signin.name,
+                        })
+                    }).then(res=>res.json("good")).then(
+                        (fposts)=>{
+                            buff(pdata.data)
+                            friposts(fposts)
+                        }
+                        
+                    )
+                     )
+        }
+      },[])
     return(
         <div className="lg:mx-32 lg:text-4xl sm:mx-5 sm:text-lg bg-slate-200 lg:rounded-3xl sm:rounded-xl lg:my-96 sm:my-20 flex flex-col justify-center animate__animated animate__fadeIn " >
             <div className="lg:pb-5 lg:pt-10 lg:px-20 sm:pb-1 sm:pt-5 sm:px-5">

@@ -110,17 +110,7 @@ function App() {
     msgchange(false);
     profilechange(false);
    }
-  // useEffect(()=>{
-  //   fetch('http://localhost:3000/profile',{
-  //     method:'get',
-  //     headers:{'content-type':'application/Json'},
-  //   })
-  //   .then((respond)=>respond.json())
-  //   .then ((data)=>console.log(data))
-  //   .catch((err)=>{
-  //     console.log(err);
-  //   })
-  // },[])
+  
 
   
   // const[getin,setgetin]=useState(false);
@@ -134,21 +124,27 @@ function App() {
   }
   const chg=(obj)=>{
     switch (obj){
-      case "home":return <Feeds feed={friends} profile={profmode}/>;
+      case "home":return <Feeds feed={friends} profile={profmode} reacter={user.name}/>;
       case "noti":return <Notifeed/>;
       case "post":return <Postscreen name={user.name} chg={modechg}/>;
       case "mail":return <Chatheadfeed/>;
       case "prof":return <Profile name={user.name} feed={user.feeds}/>;
-      default:return <Feeds feed={friends} profile={profmode}/>;
+      default:return <Feeds feed={friends} profile={profmode} reacter={user.name}/>;
     }
+    
   }
- 
+  useEffect(()=>{
+    const isloggedin=localStorage.getItem('getin');
+    if(isloggedin==='true'){
+      dispatch(changegetin(true));
+    }
+  },[])
   return (
     <div>
       <NavBar getin={getin} setgetin={gfunction} regist={registfunction} name={user.name}/>
       { 
         getin===true?
-        
+
         <div>
           
           <div>
