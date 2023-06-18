@@ -73,7 +73,7 @@ function Signin({setgetin,setregist,buff,friposts}){
             dbbuff.name=localStorage.getItem('username');
             signin.name=localStorage.getItem('signinname');
             console.log(signin);
-            fetch('http://localhost:3000/profile',{
+            fetch('https://node-server-1ag1.onrender.com/profile',{
                     method:'post',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify({
