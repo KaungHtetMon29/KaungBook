@@ -13,19 +13,34 @@ function Feeds({feed,profile,reacter}){
 //                 })
 //             }
             <div className="">
-                <Feedcard profile={profile} />
+                <Feedcard obj={
+                    name:"kaung",
+                    status:"testing"
+                }profile={profile} />
             </div>
             <div className="">
-                <Feedcard profile={profile}/>
+                <Feedcard obj={
+                    name:"kaung",
+                    status:"testing"
+                }profile={profile} />
             </div>
             <div className="">
-                <Feedcard profile={profile}/>
+                <Feedcard obj={
+                    name:"kaung",
+                    status:"testing"
+                }profile={profile} />
             </div>
             <div className="">
-                <Feedcard profile={profile}/>
+                <Feedcard obj={
+                    name:"kaung",
+                    status:"testing"
+                }profile={profile} />
             </div>
             <div className="">
-                <Feedcard profile={profile}/>
+                <Feedcard obj={
+                    name:"kaung",
+                    status:"testing"
+                }profile={profile} />
             </div>
             {/* {
                 arr.map((arr)=>(
