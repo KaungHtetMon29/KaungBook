@@ -129,7 +129,7 @@ function App() {
       case "post":return <Postscreen name={user.name} chg={modechg}/>;
       case "mail":return <Chatheadfeed/>;
       case "prof":return <Profile name={user.name} feed={user.feeds}/>;
-      default:return <Feeds feed={friends} profile={profmode} reacter={user.name}/>;
+      default:return <Feeds feed={user.feeds} profile={profmode} reacter={user.name}/>;
     }
     
   }
