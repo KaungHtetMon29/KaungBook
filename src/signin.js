@@ -55,6 +55,7 @@ function Signin({setgetin,setregist,buff,friposts}){
                     }).then(res=>res.json("good")).then(
                         (fposts)=>{
                             buff(pdata.data)
+                            console.log(fposts)
                             friposts(fposts)
                         }
                         
