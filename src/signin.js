@@ -18,7 +18,10 @@ function Signin({setgetin,setregist,buff,friposts}){
     const onPwchange=(e)=>{
         signin.pw=e.target.value;
     }
-
+    const f={
+        name:"kaung",
+        status:"testing"
+    }
 
     
 
@@ -39,7 +42,7 @@ function Signin({setgetin,setregist,buff,friposts}){
                 localStorage.setItem('getin','true');
                 localStorage.setItem('username',dbbuff.name)
                 localStorage.setItem('signinname',signin.name);
-                fetch(https://node-server-1ag1.onrender.com/profile',{
+                fetch('https://node-server-1ag1.onrender.com/profile',{
                     method:'post',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify({
@@ -54,7 +57,7 @@ function Signin({setgetin,setregist,buff,friposts}){
                         })
                     }).then(res=>res.json("good")).then(
                         (fposts)=>{
-                            buff(pdata.data)
+                            buff(f)
                             friposts(fposts)
                         }
                         
@@ -89,7 +92,7 @@ function Signin({setgetin,setregist,buff,friposts}){
                         })
                     }).then(res=>res.json("good")).then(
                         (fposts)=>{
-                            buff(pdata.data)
+                            buff(f)
                             friposts(fposts)
                         }
                         

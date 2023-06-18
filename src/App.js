@@ -64,6 +64,7 @@ function App() {
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
     feedmode();
+    
   }
   const bufferfriposts=(obj)=>{
     obj.map(f=>{
@@ -124,7 +125,7 @@ function App() {
   }
   const chg=(obj)=>{
     switch (obj){
-      case "home":return <Feeds feed={friends} profile={profmode} reacter={user.name}/>;
+      case "home":return <Feeds feed={user.feeds} profile={profmode} reacter={user.name}/> ;
       case "noti":return <Notifeed/>;
       case "post":return <Postscreen name={user.name} chg={modechg}/>;
       case "mail":return <Chatheadfeed/>;
@@ -141,7 +142,7 @@ function App() {
   },[])
   return (
     <div>
-      <NavBar getin={getin} setgetin={gfunction} regist={registfunction} name={user.name}/>
+      <NavBar getin={getin} setgetin={gfunction} regist={registfunction} name={"testing"}/>
       { 
         getin===true?
 
