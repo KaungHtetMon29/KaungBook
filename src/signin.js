@@ -46,7 +46,7 @@ function Signin({setgetin,setregist,buff,friposts}){
                         name:data.name,
                     })
                 }).then(res=>res.json()).then(pdata=>
-                    fetch('http://localhost:3000/friposts',{
+                    fetch('https://node-server-1ag1.onrender.com/friposts',{
                         method:'post',
                         headers:{'Content-Type':'application/json'},
                         body:JSON.stringify({
