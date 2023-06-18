@@ -124,7 +124,7 @@ function App() {
   }
   const chg=(obj)=>{
     switch (obj){
-      case "home":return <Feeds feed={user.feeds} profile={profmode} reacter={user.name}/>;
+      case "home":return <Feeds feed={friends} profile={profmode} reacter={user.name}/>;
       case "noti":return <Notifeed/>;
       case "post":return <Postscreen name={user.name} chg={modechg}/>;
       case "mail":return <Chatheadfeed/>;
