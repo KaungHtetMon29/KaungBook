@@ -3,7 +3,7 @@ import Chathead from "./Chathead";
 
 function Chatheadfeed(){
     return(
-        <div className="mb-72">
+        <div className="lg:mb-72 2xl:mb-5 xl:mb-8">
             <Chathead/>
             <Chathead/>
             <Chathead/>

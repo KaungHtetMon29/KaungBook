@@ -4,6 +4,16 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    extend:{
+      margin:{
+        '100':'700px',
+        '97':'512px',
+        '98':'640px'
+      },
+      padding:{
+        '100':'500px'
+      }
+    },
     screens: {
       'sm': '390px',
       // => @media (min-width: 640px) { ... }
@@ -17,7 +27,7 @@ module.exports = {
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1920px',
+      '2xl': '1440px',
       // => @media (min-width: 1536px) { ... }
     },
     borderWidth: {
@@ -29,7 +39,8 @@ module.exports = {
       '6': '6px',
       '8': '8px',
       '9':'13px'
-    }
+    },
+    
   },
   plugins: [],
 }

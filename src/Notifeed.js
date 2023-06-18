@@ -4,7 +4,7 @@ import Noti from "./Noti";
 
 function Notifeed(){
     return(
-        <div className="mb-72">
+        <div className="lg:mb-72 2xl:mb-5">
             <Noti/>
             <Noti/>
             <Noti/>

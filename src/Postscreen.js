@@ -35,33 +35,33 @@ function Postscreen({name,chg}){
         
     // })
     return(
-        <div className="b-10">
-            <div className="flex items-center text-5xl bg-white font-bold py-10">
-                <div><img src={usericon} className="w-40 px-10"/></div>
+        <div className="b-10 2xl:mx-96 xl:mx-72 2xl:ml-98 xl:ml-97">
+            <div className="flex items-center lg:text-5xl 2xl:text-2xl xl:text-xl bg-white font-bold lg:py-10 2xl:py-3 xl:py-3">
+                <div><img src={usericon} className="lg:w-40 2xl:w-20 xl:w-20 lg:px-10 2xl:px-5 xl:px-5"/></div>
                 <div className="grow"><p>{name}</p></div>
-                <div><button onClick={upload} className="border-l-4 border-black py-5 pl-10 pr-10  w-full text-black font-bold">Submit</button></div>
+                <div><button onClick={upload} className="lg:border-l-4 2xl:xl:border-l-4 xl:border-l-2 border-black lg:py-5 xl:py-3 xl:pl-5 2xl:py-2 lg:pl-10 2xl:pl-5 pr-10  w-full text-black font-bold">Submit</button></div>
             </div>
-            <div className="flex flex-col py-5 px-10  text-white text-5xl ">
+            <div className="flex flex-col lg:py-5 lg:px-10 2xl:py-5 2xl:px-5 xl:py-5 xl:px-5  text-white lg:text-5xl 2xl:text-2xl xl:text-xl ">
                  <div className="flex grow justify-center">
-                    <div className="pr-5 w-max">
-                        <img src={plus} className="w-20 bg-blue-700 p-5 rounded-full "/>
+                    <div className="lg:pr-5 2xl:pr-5 xl:pr-5 w-max">
+                        <img src={plus} className="lg:w-20 2xl:w-36 xl:w-36 bg-blue-700 lg:p-5 2xl:p-3 xl:p-3 rounded-full "/>
                     </div>
-                    <div className="w-screen flex text-black textform h-96">
+                    <div className="w-screen flex text-black textform lg:h-96 2xl:h-60 xl:h-48">
                         <textarea className="w-full rounded-xl bg-white p-5 ..." placeholder="text here" onChange={post}></textarea>
                         {/* <span   role="textbox" contentEditable="true" id="form"/> */}
                     </div>
                 </div>  
-                <div className="mt-10 mb-5 py-8 rounded-xl bg-white text-black font-bold shadow-xl flex items-center">
+                <div className="lg:mt-10 2xl:mt-5 xl:mt-5 lg:mb-5 2xl:mb-5 xl:mb-5 lg:py-8 xl:py-5 2xl:py-5 rounded-xl bg-white text-black font-bold shadow-xl flex items-center">
                     <div>
-                    <img src={locationicon} className="w-24 pl-5"/>
+                    <img src={locationicon} className="lg:w-24 2xl:w-16 xl:w-14 pl-5"/>
                     </div>
-                    <div><p className="px-10 text-5xl">Location</p></div>
+                    <div><p className="lg:px-10 2xl:px-5 xl:px-5 lg:text-5xl 2xl:text-3xl xl:text-3xl">Location</p></div>
                 </div>
-                <div className="py-8 mb-5 rounded-xl bg-white text-black font-bold shadow-xl flex items-center">
+                <div className="lg:py-8 lg:mb-5  2xl:py-5 2xl:mb-5 rounded-xl bg-white text-black font-bold shadow-xl flex items-center">
                     <div>
-                    <img src={feelingicon} className="w-24 pl-5"/>
+                    <img src={feelingicon} className="lg:w-24 2xl:w-16 xl:w-14 pl-5"/>
                     </div>
-                    <div><p className="px-10 text-5xl">Feeling</p></div>
+                    <div><p className="lg:px-10 2xl:px-5 xl:px-5 lg:text-5xl 2xl:text-3xl xl:text-3xl">Feeling</p></div>
                 </div>
                 {/* <div className="w-1/4 pl-10 h-20 ">
                         <button className="bg-blue-700 py-5 pl-10 pr-10 rounded-xl  w-full ">Submit</button>

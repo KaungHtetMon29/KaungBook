@@ -10,5 +10,4 @@ function CmtFetch(id){
                     })
         }).then(respond=>respond.JSON()).then(data=>console.log(data))
     }
-    
 }
