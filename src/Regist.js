@@ -31,7 +31,7 @@ function Regist({setgetin,setregist,buff}){
 
 
     return(
-        <div className="shadow-md lg:m-auto lg:w-1/2 lg:my-96 2xl:m-auto 2xl:w-3/12 2xl:mt-20 xl:m-auto xl:w-4/12 xl:mt-10 lg:text-4xl xl:text-xl 2xl:text-lg bg-slate-200 rounded-3xl flex flex-col justify-center">
+        <div className="shadow-md lg:m-auto lg:w-1/2 lg:my-96 2xl:m-auto 2xl:w-3/12 2xl:mt-20 xl:m-auto sm:m-auto sm:w-3/4 sm:mt-10 xl:w-4/12 xl:mt-10 lg:text-4xl sm:text-base xl:text-xl 2xl:text-lg bg-slate-200 rounded-3xl sm:rounded-lg flex flex-col justify-center">
             <div className="lg:pb-5 lg:pt-10 xl:pt-3 xl:pb-5 xl:px-10 2xl:pt-3  2xl:pb-5 lg:px-20 2xl:px-10 sm:pb-1 sm:pt-5 sm:px-5">
                 <form className="flex flex-col lg:py-4 2xl:py-3 xl:py-1 sm:py-2 form">
                     <label className="grow lg:py-4 2xl:py-2 2xl:px-2 lg:px-4 sm:py-2 sm:px-2">Enter Email</label>

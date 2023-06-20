@@ -84,7 +84,7 @@ function Signin({setgetin,setregist,buff,friposts}){
                         
                     })
                 }).then(res=>res.json()).then(pdata=>
-                    fetch('https://node-server-1ag1.onrender.com/friposts',{
+                    fetch('http://localhost:3000/friposts',{
                         method:'post',
                         headers:{'Content-Type':'application/json'},
                         body:JSON.stringify({
@@ -101,7 +101,7 @@ function Signin({setgetin,setregist,buff,friposts}){
         }
       },[])
     return(
-        <div className="shadow-md lg:m-auto lg:w-1/2 2xl:m-auto 2xl:w-3/12 xl:w-4/12 lg:text-4xl 2xl:text-base xl:text-2xl xl:m-auto sm:mx-5 sm:text-lg bg-slate-200 lg:rounded-3xl sm:rounded-xl lg:my-96 2xl:mt-10 xl:mt-10 sm:my-20 flex flex-col justify-center animate__animated animate__fadeIn " >
+        <div className="shadow-md lg:m-auto lg:w-1/2 2xl:m-auto 2xl:w-3/12 xl:w-4/12 lg:text-4xl 2xl:text-base xl:text-2xl xl:m-auto sm:m-auto sm:mt-10 sm:w-3/4 sm:text-base bg-slate-200 lg:rounded-3xl sm:rounded-xl lg:my-96 2xl:mt-10 xl:mt-10 sm:my-20 flex flex-col justify-center animate__animated animate__fadeIn " >
             <div className="lg:pb-5 lg:pt-10 2xl:pb-0 xl:px-12 lg:px-20 2xl:px-10 sm:pb-1 sm:pt-5 sm:px-5 xl:pb-2 xl:pt-5">
                 <form className="flex flex-col lg:py-4 2xl:py-1 sm:py-2 xl:py-1 form" >
                     <label className="grow lg:py-4 2xl:py-2 2xl:px-2 lg:px-4 sm:py-2 sm:px-2 xl:px-2">Enter Email/Username</label>
