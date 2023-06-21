@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.css';
-import rootReducer from './reducer';
+import App from './pages/App';
+import './Assets/Styles/index.css';
+import rootReducer from './Services/reducer';
 import { Provider } from 'react-redux';
 import {createStore} from 'redux';
 import reportWebVitals from './reportWebVitals';

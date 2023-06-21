@@ -1,9 +1,9 @@
 import React from "react";
-import Chathead from "./Chathead";
+import Chathead from "../Components/Chathead";
 
 function Chatheadfeed(){
     return(
-        <div className="lg:mb-72 2xl:mb-5 xl:mb-8">
+        <div className="lg:mb-72 2xl:mb-5 xl:mb-8 sm:mb-24">
             <Chathead/>
             <Chathead/>
             <Chathead/>

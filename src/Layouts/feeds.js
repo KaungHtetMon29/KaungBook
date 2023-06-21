@@ -1,5 +1,5 @@
 import React from "react";
-import Feedcard from "./Feedcard";
+import Feedcard from "../Components/Feedcard";
 
 
 function Feeds({feed,profile,reacter}){
