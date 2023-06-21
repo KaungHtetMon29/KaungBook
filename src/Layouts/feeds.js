@@ -4,7 +4,7 @@ import Feedcard from "../Components/Feedcard";
 
 function Feeds({feed,profile,reacter}){
     return(
-        <div className="lg:mb-72 2xl:mb-5 xl:mb-8 ">
+        <div className="lg:mb-72 2xl:mb-5 xl:mb-8 sm:mb-24 ">
             {   
                 
                 
