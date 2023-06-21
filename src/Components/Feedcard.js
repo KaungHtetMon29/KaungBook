@@ -23,7 +23,7 @@ function Feedcard({obj,profile,reacter}){
         console.log(reacter)
     }
     const dbupdate =(input) =>{
-        fetch(`${URL}reaction`,{
+        fetch(`https://node-server-1ag1.onrender.com/reaction`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -35,7 +35,7 @@ function Feedcard({obj,profile,reacter}){
 
     const cmtdbupdate =()=>{
         console.log(reacter)
-        fetch(`${URL}cmt`,{
+        fetch(`https://node-server-1ag1.onrender.com/cmt`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

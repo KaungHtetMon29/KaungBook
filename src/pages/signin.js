@@ -30,7 +30,7 @@ function Signin({setgetin,setregist,buff,friposts}){
 
     const click=()=>{
         //node-server-1ag1.onrender.com
-        fetch(`${URL}signin`,{
+        fetch(`https://node-server-1ag1.onrender.com/signin`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
