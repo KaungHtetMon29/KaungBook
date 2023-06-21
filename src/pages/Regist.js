@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function Regist({setgetin,setregist,buff}){
+    const URL=process.env.REACT_APP_PUBLIC_URL;
     const [register,setregister]=useState({
         email:"",
         name:"",
@@ -18,7 +19,7 @@ function Regist({setgetin,setregist,buff}){
     const click=()=>{
         buff(register.name);
         setgetin();
-        fetch('http://localhost:3000/register',{
+        fetch(`${URL}register`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

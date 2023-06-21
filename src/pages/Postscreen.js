@@ -6,13 +6,14 @@ import feelingicon from "../Assets/imgs/happy-face.png";
 import '../Assets/Styles/post.css';
 
 function Postscreen({name,chg}){
+    const URL=process.env.REACT_APP_PUBLIC_URL
     const [status,setstatus]=useState();
     const post=(e)=>{
         setstatus(e.target.value)
         console.log(e.target.value)
     }
     const upload =()=>{
-        fetch('http://localhost:3000/feedupload',{
+        fetch(`${URL}feedupload`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

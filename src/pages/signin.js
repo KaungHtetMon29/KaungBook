@@ -3,7 +3,10 @@ import 'animate.css'
 import '../Assets/Styles/siginin.css'
 import usericon from "../Assets/imgs/search.png";
 
+
+
 function Signin({setgetin,setregist,buff,friposts}){
+    const URL=process.env.REACT_APP_PUBLIC_URL
     const [signin,setsignin]=useState({
         name:"",
         pw:""
@@ -27,7 +30,7 @@ function Signin({setgetin,setregist,buff,friposts}){
 
     const click=()=>{
         //node-server-1ag1.onrender.com
-        fetch('http://localhost:3000/signin',{
+        fetch(`${URL}signin`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -42,14 +45,14 @@ function Signin({setgetin,setregist,buff,friposts}){
                 localStorage.setItem('getin','true');
                 localStorage.setItem('username',dbbuff.name)
                 localStorage.setItem('signinname',signin.name);
-                fetch('http://localhost:3000/profile',{
+                fetch(`${URL}profile`,{
                     method:'post',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify({
                         name:data.name,
                     })
                 }).then(res=>res.json()).then(pdata=>
-                    fetch('http://localhost:3000/friposts',{
+                    fetch(`${URL}friposts`,{
                         method:'post',
                         headers:{'Content-Type':'application/json'},
                         body:JSON.stringify({
@@ -77,7 +80,7 @@ function Signin({setgetin,setregist,buff,friposts}){
             dbbuff.name=localStorage.getItem('username');
             signin.name=localStorage.getItem('signinname');
             console.log(signin);
-            fetch('http://localhost:3000/profile',{
+            fetch(`${URL}profile`,{
                     method:'post',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify({
@@ -85,7 +88,7 @@ function Signin({setgetin,setregist,buff,friposts}){
 
                     })
                 }).then(res=>res.json()).then(pdata=>
-                    fetch('http://localhost:3000/friposts',{
+                    fetch(`${URL}friposts`,{
                         method:'post',
                         headers:{'Content-Type':'application/json'},
                         body:JSON.stringify({
