@@ -13,7 +13,7 @@ function Postscreen({name,chg}){
         console.log(e.target.value)
     }
     const upload =()=>{
-        fetch(`https://node-server-1ag1.onrender.com/feedupload`,{
+        fetch(`${URL}feedupload`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
