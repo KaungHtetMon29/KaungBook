@@ -1,5 +1,5 @@
 import React from "react";
-import usericon from "./imgs/user.png";
+import usericon from "../Assets/imgs/user.png";
 
 function Noti(){
     return(

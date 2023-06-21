@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import plus from "./imgs/plus.png"
-import usericon from "./imgs/user.png";
-import locationicon from "./imgs/location.png";
-import feelingicon from "./imgs/happy-face.png";
-import './post.css';
+import plus from "../Assets/imgs/plus.png"
+import usericon from "../Assets/imgs/user.png";
+import locationicon from "../Assets/imgs/location.png";
+import feelingicon from "../Assets/imgs/happy-face.png";
+import '../Assets/Styles/post.css';
 
 function Postscreen({name,chg}){
+    const URL=process.env.REACT_APP_PUBLIC_URL
     const [status,setstatus]=useState();
     const post=(e)=>{
         setstatus(e.target.value)
         console.log(e.target.value)
     }
     const upload =()=>{
-        fetch('http://localhost:3000/feedupload',{
+        fetch(`${URL}feedupload`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

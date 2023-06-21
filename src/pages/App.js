@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import Feedcard from "./Feedcard";
-import NavBar from "./Navbar";
+import Feedcard from "../Components/Feedcard";
+import NavBar from "../Layouts/Navbar";
 import Signin from "./signin";
 import Regist from "./Regist";
-import Modebar from "./Modebar";
-import Notifeed from "./Notifeed";
-import Chathead from "./Chathead";
-import Chatheadfeed from "./Chatheadfeed";
-import Feeds from "./feeds";
+import Modebar from "../Layouts/Modebar";
+import Notifeed from "../Layouts/Notifeed";
+import Chathead from "../Components/Chathead";
+import Chatheadfeed from "../Layouts/Chatheadfeed";
+import Feeds from "../Layouts/feeds";
 import Profile from "./profile";
 import { useDispatch,useSelector} from "react-redux";
-import { changefeed,changenoti,changemsg,changeprofile, changegetin, changeregist } from "./action";
+import { changefeed,changenoti,changemsg,changeprofile, changegetin, changeregist } from "../Services/action";
 import Postscreen from "./Postscreen";
+import { Co2Sharp } from "@mui/icons-material";
+
 
 // import './app.css';
 // const mapStateToProps=(state)=>{
@@ -64,7 +66,11 @@ function App() {
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
     feedmode();
+<<<<<<< HEAD:src/App.js
     
+=======
+    console.log(user)
+>>>>>>> beta:src/pages/App.js
   }
   const bufferfriposts=(obj)=>{
     obj.map(f=>{
@@ -125,7 +131,11 @@ function App() {
   }
   const chg=(obj)=>{
     switch (obj){
+<<<<<<< HEAD:src/App.js
       case "home":return <Feeds feed={user.feeds} profile={profmode} reacter={user.name}/> ;
+=======
+      case "home":return <Feeds feed={friends} profile={profmode} reacter={user.name}/> ;
+>>>>>>> beta:src/pages/App.js
       case "noti":return <Notifeed/>;
       case "post":return <Postscreen name={user.name} chg={modechg}/>;
       case "mail":return <Chatheadfeed/>;

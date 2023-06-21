@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import usericon from "./imgs/user.png";
-import logo from "./imgs/kaung.png";
+import usericon from "../Assets/imgs/user.png";
+import logo from "../Assets/imgs/kaung.png";
 import { useDispatch,useSelector} from "react-redux";
-import { navbarchange } from "./action";
+import { navbarchange } from "../Services/action";
 
 function Navbar({getin,setgetin,regist,name}){
     // const [enable,setenable]=useState(false);

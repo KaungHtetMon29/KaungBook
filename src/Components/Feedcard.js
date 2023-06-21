@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import usericon from "./imgs/user.png";
-import like from "./imgs/like.png";
-import haha from "./imgs/laughter.png";
-import love from "./imgs/thumbs-up.png";
-import heart from "./imgs/heart.png"
-import plus from "./imgs/plus.png"
-import './feedcardanimation.css'
+import usericon from "../Assets/imgs/user.png";
+import like from "../Assets/imgs/like.png";
+import haha from "../Assets/imgs/laughter.png";
+import love from "../Assets/imgs/thumbs-up.png";
+import heart from "../Assets/imgs/heart.png"
+import plus from "../Assets/imgs/plus.png"
+import '../Assets/Styles/feedcardanimation.css'
 
 
 function Feedcard({obj,profile,reacter}){
+    const URL=process.env.REACT_APP_PUBLIC_URL;
     const [enable,setenable]=useState(false);
     const [cmt,setcmt]=useState(false);
     const [height,setheight]=useState(0);
@@ -22,7 +23,7 @@ function Feedcard({obj,profile,reacter}){
         console.log(reacter)
     }
     const dbupdate =(input) =>{
-        fetch('http://localhost:3000/reaction',{
+        fetch(`${URL}reaction`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -34,7 +35,7 @@ function Feedcard({obj,profile,reacter}){
 
     const cmtdbupdate =()=>{
         console.log(reacter)
-        fetch('http://localhost:3000/cmt',{
+        fetch(`${URL}cmt`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -55,7 +56,7 @@ function Feedcard({obj,profile,reacter}){
         setcmt(!cmt);
     }
     useEffect(()=>{
-        fetch('http://localhost:3000/cmtupdate',{
+        fetch(`${URL}cmtupdate`,{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

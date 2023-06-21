@@ -1,5 +1,5 @@
 import React from "react";
-import Chathead from "./Chathead";
+import Chathead from "../Components/Chathead";
 
 function Chatheadfeed(){
     return(

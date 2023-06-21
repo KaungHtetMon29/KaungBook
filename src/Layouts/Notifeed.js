@@ -1,5 +1,5 @@
 import React from "react";
-import Noti from "./Noti";
+import Noti from "../Components/Noti";
 
 
 function Notifeed(){
