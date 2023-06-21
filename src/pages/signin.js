@@ -30,11 +30,7 @@ function Signin({setgetin,setregist,buff,friposts}){
 
     const click=()=>{
         //node-server-1ag1.onrender.com
-<<<<<<< HEAD:src/signin.js
-        fetch('https://node-server-1ag1.onrender.com/signin',{
-=======
         fetch(`${URL}signin`,{
->>>>>>> beta:src/pages/signin.js
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
@@ -49,22 +45,14 @@ function Signin({setgetin,setregist,buff,friposts}){
                 localStorage.setItem('getin','true');
                 localStorage.setItem('username',dbbuff.name)
                 localStorage.setItem('signinname',signin.name);
-<<<<<<< HEAD:src/signin.js
-                fetch('https://node-server-1ag1.onrender.com/profile',{
-=======
                 fetch(`${URL}profile`,{
->>>>>>> beta:src/pages/signin.js
                     method:'post',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify({
                         name:data.name,
                     })
                 }).then(res=>res.json()).then(pdata=>
-<<<<<<< HEAD:src/signin.js
-                    fetch('https://node-server-1ag1.onrender.com/friposts',{
-=======
                     fetch(`${URL}friposts`,{
->>>>>>> beta:src/pages/signin.js
                         method:'post',
                         headers:{'Content-Type':'application/json'},
                         body:JSON.stringify({
@@ -72,12 +60,8 @@ function Signin({setgetin,setregist,buff,friposts}){
                         })
                     }).then(res=>res.json("good")).then(
                         (fposts)=>{
-<<<<<<< HEAD:src/signin.js
-                            buff(f)
-=======
                             buff(pdata.data)
                             console.log(fposts)
->>>>>>> beta:src/pages/signin.js
                             friposts(fposts)
                         }
                         
@@ -96,11 +80,7 @@ function Signin({setgetin,setregist,buff,friposts}){
             dbbuff.name=localStorage.getItem('username');
             signin.name=localStorage.getItem('signinname');
             console.log(signin);
-<<<<<<< HEAD:src/signin.js
-            fetch('https://node-server-1ag1.onrender.com/profile',{
-=======
             fetch(`${URL}profile`,{
->>>>>>> beta:src/pages/signin.js
                     method:'post',
                     headers:{'Content-Type':'application/json'},
                     body:JSON.stringify({
@@ -108,11 +88,7 @@ function Signin({setgetin,setregist,buff,friposts}){
 
                     })
                 }).then(res=>res.json()).then(pdata=>
-<<<<<<< HEAD:src/signin.js
-                    fetch('http://localhost:3000/friposts',{
-=======
                     fetch(`${URL}friposts`,{
->>>>>>> beta:src/pages/signin.js
                         method:'post',
                         headers:{'Content-Type':'application/json'},
                         body:JSON.stringify({
@@ -120,12 +96,8 @@ function Signin({setgetin,setregist,buff,friposts}){
                         })
                     }).then(res=>res.json("good")).then(
                         (fposts)=>{
-<<<<<<< HEAD:src/signin.js
-                            buff(f)
-=======
                             console.log(pdata)
                             buff(pdata.data)
->>>>>>> beta:src/pages/signin.js
                             friposts(fposts)
                         }
                         

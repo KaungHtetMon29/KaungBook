@@ -66,11 +66,7 @@ function App() {
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
     feedmode();
-<<<<<<< HEAD:src/App.js
-    
-=======
     console.log(user)
->>>>>>> beta:src/pages/App.js
   }
   const bufferfriposts=(obj)=>{
     obj.map(f=>{
@@ -131,11 +127,7 @@ function App() {
   }
   const chg=(obj)=>{
     switch (obj){
-<<<<<<< HEAD:src/App.js
-      case "home":return <Feeds feed={user.feeds} profile={profmode} reacter={user.name}/> ;
-=======
       case "home":return <Feeds feed={friends} profile={profmode} reacter={user.name}/> ;
->>>>>>> beta:src/pages/App.js
       case "noti":return <Notifeed/>;
       case "post":return <Postscreen name={user.name} chg={modechg}/>;
       case "mail":return <Chatheadfeed/>;
