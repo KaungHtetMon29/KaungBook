@@ -68,7 +68,7 @@ function App() {
   }
   const bufferuser=(obj)=>{
 //regist or siginin check
-    console.log(obj);
+    console.log(obj[0].name);
     if(Object.keys(obj).length>1){
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
