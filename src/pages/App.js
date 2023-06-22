@@ -67,7 +67,7 @@ function App() {
     setmode(m);
   }
   const bufferuser=(obj)=>{
-    console.log(Object.keys(obj).length);
+    console.log(obj);
 //regist or siginin check
     if(Object.keys(obj).length==0){
     user.name=obj.name;
