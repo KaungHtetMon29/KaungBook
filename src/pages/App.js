@@ -55,10 +55,6 @@ function App() {
   });
   const [mode,setmode]=useState("");
   const [friends,setfriends]=useState([]);
-  const logout=()=>{
-    user.name=""
-    user.feeds=[]
-  }
   // const[feeds,setfeeds]=useState(true);
   // const[noti,setnoti]=useState(false);
   // const[msg,setmsg]=useState(false);
@@ -163,7 +159,7 @@ function App() {
   },[])
   return (
     <div>
-      <NavBar getin={getin} setgetin={gfunction} regist={registfunction} name={user.name} logout={logout}/>
+      <NavBar getin={getin} setgetin={gfunction} regist={registfunction} name={user.name} />
       { 
         getin===true?
 

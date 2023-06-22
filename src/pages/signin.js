@@ -25,7 +25,6 @@ function Signin({setgetin,setregist,buff,friposts}){
         name:"kaung",
         status:"testing"
     }
-
     
 
     const click=()=>{
