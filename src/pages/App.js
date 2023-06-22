@@ -69,10 +69,14 @@ function App() {
   const bufferuser=(obj)=>{
     console.log(Object.keys(obj).length);
 //regist or siginin check
-    
+    if(Object.keys(obj).length==0){
+    user.name=obj.name;
+    }else{
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
     setmode("home");
+    }
+    
     console.log(user)
   }
   const regitstbuff=(obj)=>{
