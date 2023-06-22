@@ -67,9 +67,8 @@ function App() {
     setmode(m);
   }
   const bufferuser=(obj)=>{
-    console.log(Object.keys(obj).length);
 //regist or siginin check
-    if(Object.keys(obj).length!==0){
+    if(Object.keys(obj).length>1){
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
     setmode("home");
