@@ -60,15 +60,16 @@ function Signin({setgetin,setregist,buff,friposts}){
                         })
                     }).then(res=>res.json("good")).then(
                         (fposts)=>{
-                            console.log(pdata.data.length)
-                            if(pdata.data.length===0){
-                                buff(dbbuff);
-                                friposts(fposts)
-                            }else{
                             buff(pdata.data)
-                            console.log(pdata)
+                            console.log(pdata.data)
                             friposts(fposts)
-                            }
+                            console.log(pdata.data.length)
+                            // if(pdata.data.length===0){
+                            //     buff(dbbuff);
+                            //     friposts(fposts)
+                            // }else{
+                            
+                            // }
                             
                         }
                         
