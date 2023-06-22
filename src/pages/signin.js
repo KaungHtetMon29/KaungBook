@@ -60,9 +60,15 @@ function Signin({setgetin,setregist,buff,friposts}){
                         })
                     }).then(res=>res.json("good")).then(
                         (fposts)=>{
+                            if(pdata.length===0){
+                                buff(signin.name);
+                                friposts(fposts)
+                            }else{
                             buff(pdata.data)
                             console.log(pdata)
                             friposts(fposts)
+                            }
+                            
                         }
                         
                     )
