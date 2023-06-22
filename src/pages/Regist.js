@@ -17,7 +17,7 @@ function Regist({setgetin,setregist,buff}){
         register.pw=e.target.value;
     }
     const click=()=>{
-        buff(register.name);
+        buff(register);
         setgetin();
         fetch(`${URL}register`,{
             method:'post',

@@ -55,6 +55,10 @@ function App() {
   });
   const [mode,setmode]=useState("");
   const [friends,setfriends]=useState([]);
+  const logout=()=>{
+    user.name=""
+    user.feeds=[]
+  }
   // const[feeds,setfeeds]=useState(true);
   // const[noti,setnoti]=useState(false);
   // const[msg,setmsg]=useState(false);
@@ -63,11 +67,19 @@ function App() {
     setmode(m);
   }
   const bufferuser=(obj)=>{
+    console.log(Object.keys(obj).length);
+//regist or siginin check
+    
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
-    feedmode();
+    setmode("home");
     console.log(user)
   }
+  const regitstbuff=(obj)=>{
+    user.name=obj.name;
+    setmode("home");
+  }
+
   const bufferfriposts=(obj)=>{
     obj.map(f=>{
       friends.push(f)
@@ -144,13 +156,13 @@ function App() {
   },[])
   return (
     <div>
-      <NavBar getin={getin} setgetin={gfunction} regist={registfunction} name={"testing"}/>
+      <NavBar getin={getin} setgetin={gfunction} regist={registfunction} name={user.name} logout={logout}/>
       { 
         getin===true?
 
         <div>
           
-          <div>
+          <div >
             
           {
             chg(mode)
@@ -182,7 +194,7 @@ function App() {
         // </div>
         :
         regist?
-        <Regist setgetin={gfunction} setregist={registfunction} buff={bufferuser}/>:
+        <Regist setgetin={gfunction} setregist={registfunction} buff={regitstbuff}/>:
         <div>
         <Signin setgetin={gfunction} setregist={registfunction} buff={bufferuser} friposts={bufferfriposts}/>
         </div>

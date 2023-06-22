@@ -4,7 +4,7 @@ import logo from "../Assets/imgs/kaung.png";
 import { useDispatch,useSelector} from "react-redux";
 import { navbarchange } from "../Services/action";
 
-function Navbar({getin,setgetin,regist,name}){
+function Navbar({getin,setgetin,regist,name,logout}){
     // const [enable,setenable]=useState(false);
     const enable=useSelector(state=>state.navenable);
     const dispatch=useDispatch();
@@ -17,6 +17,7 @@ function Navbar({getin,setgetin,regist,name}){
     const ef=()=>{
         changenav(!enable);
         setgetin();regist();
+        logout();
         localStorage.removeItem('getin');
     }
     // const Feedctrl=()=>{

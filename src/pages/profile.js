@@ -11,7 +11,7 @@ function Profile({name,feed}){
                         <div className="flex lg:justify-center sm:justify-center">
                         <img src={usericon} className="lg:w-80 xl:w-44 2xl:w-60 lg:border-9 sm:border-4 2xl:border-8 xl:border-4 sm:w-28 rounded-full border-white " />
                         </div>
-                        <p className="text-black text-center lg:pt-10 2xl:pt-5  lg:text-7xl 2xl:text-5xl xl:text-4xl sm:text-xl sm:font-bold ...">Kaung Htet Mon</p>
+                        <p className="text-black text-center lg:pt-10 2xl:pt-5  lg:text-7xl 2xl:text-5xl xl:text-4xl sm:text-xl sm:font-bold ...">{name}</p>
                     </div>
                 </div>
                 <div className="">

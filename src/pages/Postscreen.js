@@ -24,7 +24,7 @@ function Postscreen({name,chg}){
             {
                 
             if(data!=="Type something in your mind"){
-                chg("home");
+                document.getElementById("textform").value="";
             }else{
                 alert(data)
             }
@@ -48,7 +48,7 @@ function Postscreen({name,chg}){
                         <img src={plus} className="lg:w-20 2xl:w-36 xl:w-36 bg-blue-700 lg:p-5 2xl:p-3 xl:p-3 sm:w-10 sm:p-2 rounded-full "/>
                     </div>
                     <div className="w-screen flex text-black textform lg:h-96 2xl:h-60 sm:h-36 xl:h-48">
-                        <textarea className="w-full rounded-xl bg-white p-5 sm:py-2 sm:px-2 ..." placeholder="text here" onChange={post}></textarea>
+                        <textarea className="w-full rounded-xl bg-white p-5 sm:py-2 sm:px-2 ..." id="textform" placeholder="text here" onChange={post}></textarea>
                         {/* <span   role="textbox" contentEditable="true" id="form"/> */}
                     </div>
                 </div>  
