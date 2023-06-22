@@ -18,7 +18,7 @@ function Navbar({getin,setgetin,regist,name,logout}){
         changenav(!enable);
         setgetin();regist();
         logout();
-        localStorage.removeItem('getin');
+        localStorage.clear();
     }
     // const Feedctrl=()=>{
     //     setfeed(!feed);
