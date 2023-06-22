@@ -67,17 +67,20 @@ function App() {
     setmode(m);
   }
   const bufferuser=(obj)=>{
-//regist or siginin check
-    console.log(Object.keys(obj).length)
-    if(Object.keys(obj).length>1){
     user.name=obj[0].name;
     obj.map((f)=>{user.feeds.push(f)})
     setmode("home");
-    }else{
-      user.name=obj.name;obj.map((f)=>{user.feeds.push(f)})
-    }
+//regist or siginin check
+    // console.log(Object.keys(obj).length)
+    // if(Object.keys(obj).length>1){
+    // user.name=obj[0].name;
+    // obj.map((f)=>{user.feeds.push(f)})
+    // setmode("home");
+    // }else{
+    //   user.name=obj.name;obj.map((f)=>{user.feeds.push(f)})
+    // }
     
-    console.log(user)
+    // console.log(user)
   }
   const regitstbuff=(obj)=>{
     user.name=obj.name;
