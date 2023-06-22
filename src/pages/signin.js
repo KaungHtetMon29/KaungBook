@@ -62,7 +62,7 @@ function Signin({setgetin,setregist,buff,friposts}){
                         (fposts)=>{
                             console.log(pdata.data.length)
                             if(pdata.data.length===0){
-                                buff(signin.name);
+                                buff(dbbuff);
                                 friposts(fposts)
                             }else{
                             buff(pdata.data)
