@@ -98,42 +98,42 @@ function App() {
     console.log(friends);
   };
 
-  const feedmode = () => {
-    feedchange(true);
-    notichange(false);
-    msgchange(false);
-    profilechange(false);
-    setpost(false);
-  };
-  const notimode = () => {
-    feedchange(false);
-    notichange(true);
-    msgchange(false);
-    profilechange(false);
-    setpost(false);
-  };
-  const msgmode = () => {
-    feedchange(false);
-    notichange(false);
-    msgchange(true);
-    profilechange(false);
-    setpost(false);
-  };
-  const profmode = () => {
-    feedchange(false);
-    notichange(false);
-    msgchange(false);
-    profilechange(true);
-    setpost(false);
-  };
+  // const feedmode = () => {
+  //   feedchange(true);
+  //   notichange(false);
+  //   msgchange(false);
+  //   profilechange(false);
+  //   setpost(false);
+  // };
+  // const notimode = () => {
+  //   feedchange(false);
+  //   notichange(true);
+  //   msgchange(false);
+  //   profilechange(false);
+  //   setpost(false);
+  // };
+  // const msgmode = () => {
+  //   feedchange(false);
+  //   notichange(false);
+  //   msgchange(true);
+  //   profilechange(false);
+  //   setpost(false);
+  // };
+  // const profmode = () => {
+  //   feedchange(false);
+  //   notichange(false);
+  //   msgchange(false);
+  //   profilechange(true);
+  //   setpost(false);
+  // };
 
-  const postactive = () => {
-    setpost(true);
-    changefeed(false);
-    notichange(false);
-    msgchange(false);
-    profilechange(false);
-  };
+  // const postactive = () => {
+  //   setpost(true);
+  //   changefeed(false);
+  //   notichange(false);
+  //   msgchange(false);
+  //   profilechange(false);
+  // };
 
   // const[getin,setgetin]=useState(false);
   // const [regist,setregist]=useState(false);
@@ -147,7 +147,9 @@ function App() {
   const chg = (obj) => {
     switch (obj) {
       case "home":
-        return <Feeds feed={friends} profile={profmode} reacter={user.name} />;
+        return (
+          <Feeds feed={friends} profile={chg("prof")} reacter={user.name} />
+        );
       case "noti":
         return <Notifeed />;
       case "post":
@@ -157,7 +159,9 @@ function App() {
       case "prof":
         return <Profile name={user.name} feed={user.feeds} />;
       default:
-        return <Feeds feed={friends} profile={profmode} reacter={user.name} />;
+        return (
+          <Feeds feed={friends} profile={chg("prof")} reacter={user.name} />
+        );
     }
   };
   useEffect(() => {
@@ -184,14 +188,7 @@ function App() {
             }
           </div>
 
-          <Modebar
-            profmode={profmode}
-            feedmode={feedmode}
-            msgmode={msgmode}
-            notimode={notimode}
-            postmode={postactive}
-            modechg={modechg}
-          />
+          <Modebar modechg={modechg} />
         </div>
       ) : // <div>
       //   <div>

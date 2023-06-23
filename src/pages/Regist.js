@@ -27,7 +27,13 @@ function Regist({ setgetin, setregist, buff }) {
         name: register.name,
         pw: register.pw,
       }),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("getin", "true");
+        localStorage.setItem("username", register.name);
+        localStorage.setItem("signinname", register.email);
+      });
   };
 
   return (
