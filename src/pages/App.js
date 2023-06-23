@@ -67,11 +67,16 @@ function App() {
   const modechg = (m) => {
     setmode(m);
   };
-  const bufferuser = (obj) => {
+  const bufferuser = (obj, cmt) => {
+    console.log(cmt);
     user.name = obj[0].name;
-    obj.map((f) => {
-      user.feeds.push(f);
-    });
+    if (cmt) {
+      obj.map((f) => {
+        user.feeds.push(f);
+      });
+    } else {
+    }
+
     setmode("home");
     //regist or siginin check
     // console.log(Object.keys(obj).length)
@@ -82,8 +87,6 @@ function App() {
     // }else{
     //   user.name=obj.name;obj.map((f)=>{user.feeds.push(f)})
     // }
-
-    // console.log(user)
   };
   const regitstbuff = (obj) => {
     user.name = obj.name;
@@ -142,7 +145,6 @@ function App() {
   };
   const registfunction = () => {
     dispatch(changeregist(!regist));
-    console.log(regist, getin);
   };
   const chg = (obj) => {
     switch (obj) {
@@ -208,11 +210,7 @@ function App() {
       //     <Modebar/>
       // </div>
       regist ? (
-        <Regist
-          setgetin={gfunction}
-          setregist={registfunction}
-          buff={regitstbuff}
-        />
+        <Regist setregist={registfunction} buff={regitstbuff} />
       ) : (
         <div>
           <Signin

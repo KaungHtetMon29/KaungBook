@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Regist({ setgetin, setregist, buff }) {
+function Regist({ setregist, buff }) {
   const URL = process.env.REACT_APP_PUBLIC_URL;
   const [register, setregister] = useState({
     email: "",
@@ -18,7 +18,6 @@ function Regist({ setgetin, setregist, buff }) {
   };
   const click = () => {
     buff(register);
-    setgetin();
     fetch(`${URL}register`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -27,13 +26,10 @@ function Regist({ setgetin, setregist, buff }) {
         name: register.name,
         pw: register.pw,
       }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("getin", "true");
-        localStorage.setItem("username", register.name);
-        localStorage.setItem("signinname", register.email);
-      });
+    }).then((res) => {
+      alert("successfully registered");
+      setregist();
+    });
   };
 
   return (

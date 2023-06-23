@@ -64,15 +64,9 @@ function Signin({ setgetin, setregist, buff, friposts }) {
                 .then((res) => res.json("good"))
                 .then((fposts) => {
                   buff(pdata.data);
-                  console.log(pdata.data);
+
                   friposts(fposts);
                   console.log(pdata.data.length);
-                  // if(pdata.data.length===0){
-                  //     buff(dbbuff);
-                  //     friposts(fposts)
-                  // }else{
-
-                  // }
                 })
             );
         } else {
@@ -106,7 +100,7 @@ function Signin({ setgetin, setregist, buff, friposts }) {
             .then((res) => res.json("good"))
             .then((fposts) => {
               console.log(pdata);
-              buff(pdata.data);
+              buff(pdata.data, pdata.cmt);
               friposts(fposts);
             })
         );
