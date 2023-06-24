@@ -170,20 +170,23 @@ function App() {
     const isloggedin = localStorage.getItem("getin");
     let Closed = false;
 
-    window.addEventListener("beforeunload", function (event) {
-      if (!event.clientY) {
-        Closed = true;
-      }
+    // window.addEventListener("", function (event) {
+    //   if (!event.clientY) {
+    //     Closed = true;
+    //   }
+    // });
+    window.onunload(() => {
+      localStorage.clear();
+      sessionStorage.clear();
     });
 
-    setInterval(function () {
-      if (Closed) {
-        localStorage.clear();
-        sessionStorage.clear();
-      } else {
-        // Tab is still open
-      }
-    }, 500);
+    // setInterval(function () {
+    //   if (Closed) {
+
+    //   } else {
+    //     // Tab is still open
+    //   }
+    // }, 500);
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
