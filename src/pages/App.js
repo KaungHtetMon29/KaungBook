@@ -168,9 +168,18 @@ function App() {
   };
   useEffect(() => {
     const isloggedin = localStorage.getItem("getin");
+
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
+    window.addEventListener("beforeunload", (event) => {
+      if (
+        event.currentTarget.performance.navigation.type !==
+        PerformanceNavigation.TYPE_RELOAD
+      )
+        localStorage.clear();
+      sessionStorage.clear();
+    });
   }, []);
   return (
     <div>
