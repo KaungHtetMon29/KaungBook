@@ -175,7 +175,7 @@ function App() {
     //     Closed = true;
     //   }
     // });
-    window.onunload(() => {
+    window.onbeforeunload(() => {
       localStorage.clear();
       sessionStorage.clear();
     });
