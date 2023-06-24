@@ -175,10 +175,10 @@ function App() {
     //     Closed = true;
     //   }
     // });
-    window.onbeforeunload(() => {
-      localStorage.clear();
-      sessionStorage.clear();
-    });
+    // window.onbeforeunload(() => {
+    //   localStorage.clear();
+    //   sessionStorage.clear();
+    // });
 
     // setInterval(function () {
     //   if (Closed) {
