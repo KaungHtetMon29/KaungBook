@@ -183,7 +183,7 @@ function App() {
       } else {
         // Tab is still open
       }
-    }, 100);
+    }, 500);
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
