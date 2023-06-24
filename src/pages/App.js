@@ -168,18 +168,25 @@ function App() {
   };
   useEffect(() => {
     const isloggedin = localStorage.getItem("getin");
+    let Closed = false;
 
+    window.addEventListener("beforeunload", function (event) {
+      if (!event.clientY) {
+        Closed = true;
+      }
+    });
+
+    setInterval(function () {
+      if (Closed) {
+        localStorage.clear();
+        sessionStorage.clear();
+      } else {
+        // Tab is still open
+      }
+    }, 1000);
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
-    window.addEventListener("beforeunload", (event) => {
-      if (
-        event.currentTarget.performance.navigation.type !==
-        PerformanceNavigation.TYPE_RELOAD
-      )
-        localStorage.clear();
-      sessionStorage.clear();
-    });
   }, []);
   return (
     <div>
