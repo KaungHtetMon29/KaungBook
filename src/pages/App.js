@@ -168,6 +168,10 @@ function App() {
   };
   useEffect(() => {
     const isloggedin = localStorage.getItem("getin");
+    window.addEventListener("beforeunload", () => {
+      localStorage.clear();
+      sessionStorage.clear();
+    });
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
