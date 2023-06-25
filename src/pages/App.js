@@ -169,7 +169,9 @@ function App() {
   useEffect(() => {
     const isloggedin = localStorage.getItem("getin");
     let Closed = false;
-
+    window.addEventListener("beforeunbound", () => {
+      localStorage.clear();
+    });
     // window.addEventListener("", function (event) {
     //   if (!event.clientY) {
     //     Closed = true;
