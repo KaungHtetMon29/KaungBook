@@ -19,6 +19,7 @@ import {
   changeregist,
 } from "../Services/action";
 import Postscreen from "./Postscreen";
+import { useBeforeUnload } from "react-router-dom";
 import { Co2Sharp } from "@mui/icons-material";
 
 // import './app.css';
@@ -166,12 +167,11 @@ function App() {
         );
     }
   };
+  let Closed = false;
+  useBeforeUnload();
   useEffect(() => {
-    const isloggedin = localStorage.getItem("getin");
-    let Closed = false;
-    window.addEventListener("beforeunbound", () => {
-      localStorage.clear();
-    });
+    const isloggedin = sessionStorage.getItem("getin");
+
     // window.addEventListener("", function (event) {
     //   if (!event.clientY) {
     //     Closed = true;

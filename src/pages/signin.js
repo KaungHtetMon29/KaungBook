@@ -42,9 +42,9 @@ function Signin({ setgetin, setregist, buff, friposts }) {
           dbbuff.name = data.name;
           console.log(dbbuff);
 
-          localStorage.setItem("getin", "true");
-          localStorage.setItem("username", dbbuff.name);
-          localStorage.setItem("signinname", signin.name);
+          sessionStorage.setItem("getin", "true");
+          sessionStorage.setItem("username", dbbuff.name);
+          sessionStorage.setItem("signinname", signin.name);
           fetch(`${URL}profile`, {
             method: "post",
             headers: { "Content-Type": "application/json" },
@@ -76,10 +76,10 @@ function Signin({ setgetin, setregist, buff, friposts }) {
       });
   };
   useEffect(() => {
-    const isloggedin = localStorage.getItem("getin");
+    const isloggedin = sessionStorage.getItem("getin");
     if (isloggedin === "true") {
-      dbbuff.name = localStorage.getItem("username");
-      signin.name = localStorage.getItem("signinname");
+      dbbuff.name = sessionStorage.getItem("username");
+      signin.name = sessionStorage.getItem("signinname");
       console.log(signin);
       fetch(`${URL}profile`, {
         method: "post",
