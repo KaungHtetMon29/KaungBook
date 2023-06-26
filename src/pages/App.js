@@ -150,9 +150,7 @@ function App() {
   const chg = (obj) => {
     switch (obj) {
       case "home":
-        return (
-          <Feeds feed={friends} profile={chg("prof")} reacter={user.name} />
-        );
+        return <Feeds feed={friends} reacter={user.name} />;
       case "noti":
         return <Notifeed />;
       case "post":
@@ -171,24 +169,6 @@ function App() {
   useBeforeUnload();
   useEffect(() => {
     const isloggedin = sessionStorage.getItem("getin");
-
-    // window.addEventListener("", function (event) {
-    //   if (!event.clientY) {
-    //     Closed = true;
-    //   }
-    // });
-    // window.onbeforeunload(() => {
-    //   localStorage.clear();
-    //   sessionStorage.clear();
-    // });
-
-    // setInterval(function () {
-    //   if (Closed) {
-
-    //   } else {
-    //     // Tab is still open
-    //   }
-    // }, 500);
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
@@ -213,24 +193,7 @@ function App() {
 
           <Modebar modechg={modechg} />
         </div>
-      ) : // <div>
-      //   <div>
-      //     {/* <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/>
-      //     <Feedcard feed={user.feeds}/> */}
-      //     <Notifeed/>
-      //     {/* <Chatheadfeed/> */}
-      //   </div>
-      //     <Modebar/>
-      // </div>
-      regist ? (
+      ) : regist ? (
         <Regist setregist={registfunction} buff={regitstbuff} />
       ) : (
         <div>

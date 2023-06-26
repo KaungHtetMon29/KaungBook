@@ -2,14 +2,12 @@ import React from "react";
 import Feedcard from "../Components/Feedcard";
 import "../Assets/Styles/feedview.css";
 
-function Feeds({ feed, profile, reacter }) {
+function Feeds({ feed, reacter }) {
   return (
     <div className="lg:mb-72 2xl:mb-5 xl:mb-8 sm:mb-24 ">
       {feed.length ? (
         feed.map((f) => {
-          return (
-            <Feedcard obj={f} profile={profile} key={f.id} reacter={reacter} />
-          );
+          return <Feedcard obj={f} key={f.id} reacter={reacter} />;
         })
       ) : (
         <div className="text-blue-700 flex justify-center items-center m-auto mt-96 flex-col ">

@@ -14,6 +14,7 @@ function Feedcard({ obj, profile, reacter }) {
   const [height, setheight] = useState(0);
   const [comment, setcomment] = useState("");
   const [cmts, setcmts] = useState([]);
+  const [btmbdr, setbtmbdr] = useState("");
   const dh = useRef();
   var test = 0;
   const cmtliveupdate = (e) => {
@@ -54,6 +55,11 @@ function Feedcard({ obj, profile, reacter }) {
   };
   const cmtupdate = () => {
     setcmt(!cmt);
+    if (btmbdr === "") {
+      setbtmbdr("border-b-2");
+    } else {
+      setbtmbdr("");
+    }
   };
   useEffect(() => {
     fetch(`${URL}cmtupdate`, {
@@ -92,7 +98,7 @@ function Feedcard({ obj, profile, reacter }) {
         <div ref={dh}>
           <div
             onClick={profile}
-            className="lg:pt-4 2xl:py-2 xl:py-1 lg:pb-4 lg:px-5 xl:px-5 lg:border-b-2 border-gray-300 xl:border-b-2 2xl:border-b-2 sm:border-b-2 sm:pt-1 sm:pb-1 sm:px-2 flex items-center lg:text-4xl sm:text-base 2xl:text-lg xl:text-xl ..."
+            className="lg:pt-4 2xl:py-2 xl:py-1 lg:pb-4 lg:px-5 xl:px-5 lg: border-gray-300 xl:border-b-2 2xl:border-b-2 sm:border-b-2 sm:pt-1 sm:pb-1 sm:px-2 flex items-center lg:text-4xl sm:text-base 2xl:text-lg xl:text-xl ..."
           >
             <div>
               <img
@@ -169,7 +175,12 @@ function Feedcard({ obj, profile, reacter }) {
             </div>
           </div>
 
-          <div className="flex w-100 2xl:text-xl lg:text-3xl sm:text-base xl:text-base 2xl:text-sm 2xl:border-t-1 xl:border-t-1 2xl:border-b-1 xl:border-t-1 sm:border-t-2 sm:border-b-2 lg:border-t-2 lg:border-b-2 border-gray-300 ...">
+          <div
+            className={
+              "flex w-100 2xl:text-xl lg:text-3xl sm:text-base xl:text-base 2xl:text-sm 2xl:border-t-1 xl:border-t-1 xl:border-t-1 sm:border-t-2 lg:border-t-2 lg:border-b-2 border-gray-300 ... bottom " +
+              btmbdr
+            }
+          >
             <div
               className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 lg:border-r-2 2xl:border-r-1 sm:border-r-2 border-gray-300 sm:px-5 sm:py-1 w-1/3 hover:bg-sky-700 lg:rounded-bl-3xl 2xl:rounded-bl-xl sm:rounded-bl-xl ..."
               onClick={() => {
