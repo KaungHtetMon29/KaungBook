@@ -4,7 +4,7 @@ import logo from "../Assets/imgs/kaung.png";
 import { useDispatch, useSelector } from "react-redux";
 import { navbarchange } from "../Services/action";
 
-function Navbar({ getin, setgetin, regist, name }) {
+function Navbar({ getin, setgetin, regist, name, modechg }) {
   // const [enable,setenable]=useState(false);
   const enable = useSelector((state) => state.navenable);
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ function Navbar({ getin, setgetin, regist, name }) {
   return (
     <div className="2xl:text-xl xl:text-xl lg:text-5xl sm:text-base sticky top-0 z-10 ...">
       <div className="flex text-white ... ">
-        <nav className="2xl:py-2 xl:py-2 sm:py-2 lg:py-10 sm:py-4 bg-blue-700 grow ...">
+        <nav className="2xl:py-2 xl:py-2 sm:py-2 lg:py-10 bg-gradient-to-r from-cyan-400  bg-blue-700 grow ...">
           <div className="flex">
             <div className="2xl:pl-96 xl:pl-72 lg:px-10 sm:px-5 flex justify-start items-center grow ...">
               <div>
@@ -78,7 +78,10 @@ function Navbar({ getin, setgetin, regist, name }) {
         <div className="flex drop-shadow-lg grow 2xl:text-xl lg:text-4xl xl:text-xl sm:text-base ...">
           <div className="flex justify-end grow  ...">
             <ul className="bg-white absolute 2xl:mr-96 xl:mr-72 2xl:rounded-b-xl lg:rounded-b-xl sm:mr-5 sm:rounded-b-lg ...">
-              <li className="lg:pt-14 lg:pl-24 lg:pr-10 lg:pb-14 hover:bg-sky-700 sm:pt-5 sm:pl-10 sm:pb-2 sm:pr-4  2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pt-5 xl:pl-24 xl:pr-10 xl:pb-5 text-right ...">
+              <li
+                className="lg:pt-14 lg:pl-24 lg:pr-10 lg:pb-14 hover:bg-sky-700 sm:pt-5 sm:pl-10 sm:pb-2 sm:pr-4  2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pt-5 xl:pl-24 xl:pr-10 xl:pb-5 text-right ..."
+                onClick={() => modechg("friends")}
+              >
                 Find Friends
               </li>
               <li className="lg:pt-14 lg:pl-24 lg:pr-10 lg:pb-14 hover:bg-sky-700 sm:pt-2 sm:pl-10 sm:pb-4 sm:pr-4  2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pt-5 xl:pl-24 xl:pr-10 xl:pb-5 ...">

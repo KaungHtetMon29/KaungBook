@@ -21,6 +21,7 @@ import {
 import Postscreen from "./Postscreen";
 import { useBeforeUnload } from "react-router-dom";
 import { Co2Sharp } from "@mui/icons-material";
+import Friendrender from "../Layouts/friendsrender";
 
 // import './app.css';
 // const mapStateToProps=(state)=>{
@@ -159,6 +160,8 @@ function App() {
         return <Chatheadfeed />;
       case "prof":
         return <Profile name={user.name} feed={user.feeds} />;
+      case "friends":
+        return <Friendrender />;
       default:
         return (
           <Feeds feed={friends} profile={chg("prof")} reacter={user.name} />
@@ -180,6 +183,7 @@ function App() {
         setgetin={gfunction}
         regist={registfunction}
         name={user.name}
+        modechg={modechg}
       />
       {getin === true ? (
         <div>

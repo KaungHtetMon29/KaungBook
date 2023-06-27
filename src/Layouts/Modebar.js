@@ -44,7 +44,7 @@ function Modebar({ modechg }) {
           <p className="pr-5 lg:hidden 2xl:flex xl:flex sm:hidden">Post</p>
           <img
             src={plus}
-            className="lg:w-40 2xl:w-20 sm:w-20 sm:p-3 lg:p-10 2xl:p-5  xl:w-20 xl:p-5 rounded-full bg-blue-700 ..."
+            className="lg:w-40 2xl:w-20 sm:w-20 sm:p-3 lg:p-10 2xl:p-5  xl:w-20 xl:p-5 rounded-full bg-blue-700 bg-gradient-to-tr from-cyan-400 ..."
           />
         </div>
         <div
