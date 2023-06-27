@@ -15,7 +15,7 @@ function Friendrender() {
   };
   useEffect(() => {
     fetchdata();
-  }, [fetchdata]);
+  }, []);
   return (
     <div className="flex flex-wrap px-5">
       {friends.map((e, i) => {
