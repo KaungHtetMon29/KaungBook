@@ -88,13 +88,13 @@ function Feedcard({ obj, profile, reacter }) {
   };
   return (
     <div
-      className="lg:px-10 lg:py-5 sm:px-5 sm:py-2 drop-shadow 2xl:px-96 2xl:ml-64 2xl:py-2 xl:px-72 xl:ml-56 xl:py-2 ... "
+      className="lg:px-10 lg:py-5 sm:px-5 sm:py-2 drop-shadow-md 2xl:px-96 2xl:ml-64 2xl:py-2 xl:px-72 xl:ml-56 xl:py-2 ... "
       id="test"
     >
       {reaclocation()}
       {console.log(reacter)}
 
-      <div className="drop-shadow-md bg-white h-auto lg:rounded-3xl lg:pt-5 2xl:pt-2 sm:rounded-xl sm:pt-2 2xl:rounded-xl xl:rounded-xl xl:pt-2 ... parent">
+      <div className=" bg-white h-auto lg:rounded-3xl lg:pt-5 2xl:pt-2 sm:rounded-xl sm:pt-2 2xl:rounded-xl xl:rounded-xl xl:pt-2 ... parent">
         <div ref={dh}>
           <div
             onClick={profile}
@@ -177,7 +177,7 @@ function Feedcard({ obj, profile, reacter }) {
 
           <div
             className={
-              "flex w-100 2xl:text-xl lg:text-3xl sm:text-base xl:text-base 2xl:text-sm 2xl:border-t-1 xl:border-t-1 xl:border-t-1 sm:border-t-2 lg:border-t-2 lg:border-b-2 border-gray-300 ... bottom " +
+              "flex w-100 lg:text-3xl sm:text-base xl:text-base 2xl:text-sm 2xl:border-t-1 xl:border-t-1 xl:border-t-1 sm:border-t-2 lg:border-t-2 lg:border-b-2 border-gray-300 ... " +
               btmbdr
             }
           >

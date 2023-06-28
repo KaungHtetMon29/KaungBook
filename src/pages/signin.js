@@ -63,7 +63,7 @@ function Signin({ setgetin, setregist, buff, friposts }) {
               })
                 .then((res) => res.json("good"))
                 .then((fposts) => {
-                  buff(pdata.data);
+                  buff(pdata.data, pdata.cmt);
 
                   friposts(fposts);
                   console.log(pdata.data.length);
@@ -89,7 +89,7 @@ function Signin({ setgetin, setregist, buff, friposts }) {
         }),
       })
         .then((res) => res.json())
-        .then((pdata) =>
+        .then((pdata) => {
           fetch(`${URL}friposts`, {
             method: "post",
             headers: { "Content-Type": "application/json" },
@@ -102,8 +102,8 @@ function Signin({ setgetin, setregist, buff, friposts }) {
               console.log(pdata);
               buff(pdata.data, pdata.cmt);
               friposts(fposts);
-            })
-        );
+            });
+        });
     }
   }, []);
   return (

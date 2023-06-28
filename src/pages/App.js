@@ -159,7 +159,9 @@ function App() {
       case "mail":
         return <Chatheadfeed />;
       case "prof":
+        console.log(user);
         return <Profile name={user.name} feed={user.feeds} />;
+
       case "friends":
         return <Friendrender />;
       default:
