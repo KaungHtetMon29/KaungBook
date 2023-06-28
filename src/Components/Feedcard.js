@@ -182,7 +182,7 @@ function Feedcard({ obj, profile, reacter }) {
             }
           >
             <div
-              className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 lg:border-r-2 2xl:border-r-1 sm:border-r-2 border-gray-300 sm:px-5 sm:py-1 w-1/3 hover:bg-sky-700 lg:rounded-bl-3xl 2xl:rounded-bl-xl sm:rounded-bl-xl ..."
+              className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 lg:border-r-2 2xl:border-r-1 sm:border-r-2 border-gray-300 sm:px-5 sm:py-1 w-1/3 hover:bg-blue-500 lg:rounded-bl-3xl 2xl:rounded-bl-xl sm:rounded-bl-xl ..."
               onClick={() => {
                 reactionupdate();
               }}
@@ -190,7 +190,7 @@ function Feedcard({ obj, profile, reacter }) {
               react
             </div>
             <div
-              className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 lg:border-r-2 2xl:border-r-1 sm:border-r-2 border-gray-300 sm:px-5 sm:py-1 w-1/3 hover:bg-sky-700 ..."
+              className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 lg:border-r-2 2xl:border-r-1 sm:border-r-2 border-gray-300 sm:px-5 sm:py-1 w-1/3 hover:bg-blue-500 ..."
               onClick={() => {
                 cmtupdate();
                 fetchcmt();
@@ -198,7 +198,7 @@ function Feedcard({ obj, profile, reacter }) {
             >
               cmt
             </div>
-            <div className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 sm:px-5 sm:py-1 w-1/3 hover:bg-sky-700 lg:rounded-br-3xl 2xl:rounded-br-xl sm:rounded-br-xl ...">
+            <div className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 sm:px-5 sm:py-1 w-1/3 hover:bg-blue-500 lg:rounded-br-3xl 2xl:rounded-br-xl sm:rounded-br-xl ...">
               share
             </div>
           </div>

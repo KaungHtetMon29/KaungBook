@@ -17,7 +17,7 @@ function Friendrender() {
     fetchdata();
   }, []);
   return (
-    <div className="flex flex-wrap px-5">
+    <div className="flex flex-wrap px-3 mb-24 mt-2">
       {friends.map((e, i) => {
         return <FriendView name={e.name} key={i} />;
       })}

@@ -76,19 +76,19 @@ function Navbar({ getin, setgetin, regist, name, modechg }) {
       </div>
       {enable && (
         <div className="flex drop-shadow-lg grow 2xl:text-xl lg:text-4xl xl:text-xl sm:text-base ...">
-          <div className="flex justify-end grow  ...">
+          <div className="flex justify-end grow text-blue-700 font-medium ...">
             <ul className="bg-white absolute 2xl:mr-96 xl:mr-72 2xl:rounded-b-xl lg:rounded-b-xl sm:mr-5 sm:rounded-b-lg ...">
               <li
-                className="lg:pt-14 lg:pl-24 lg:pr-10 lg:pb-14 hover:bg-sky-700 sm:pt-5 sm:pl-10 sm:pb-2 sm:pr-4  2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pt-5 xl:pl-24 xl:pr-10 xl:pb-5 text-right ..."
+                className="lg:pt-14 lg:pl-24 lg:pr-10 lg:pb-14 hover:bg-blue-700 sm:pt-5 hover:text-white sm:pl-10 sm:pb-2 sm:pr-4  2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pt-5 xl:pl-24 xl:pr-10 xl:pb-5 text-right ..."
                 onClick={() => modechg("friends")}
               >
                 Find Friends
               </li>
-              <li className="lg:pt-14 lg:pl-24 lg:pr-10 lg:pb-14 hover:bg-sky-700 sm:pt-2 sm:pl-10 sm:pb-4 sm:pr-4  2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pt-5 xl:pl-24 xl:pr-10 xl:pb-5 ...">
+              <li className="lg:pt-14 lg:pl-24 lg:pr-10 lg:pb-14 hover:bg-blue-700 hover:text-white  sm:pt-2 sm:pl-10 sm:pb-4 sm:pr-4  2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pt-5 xl:pl-24 xl:pr-10 xl:pb-5 text-right ...">
                 setting
               </li>
               <li
-                className="lg:pl-24 lg:pr-10 lg:pb-12 hover:bg-sky-700 sm:pl-10 sm:pb-4 sm:pr-4 2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pl-24 xl:pt-5 xl:pr-10 xl:pb-5 ..."
+                className="lg:pl-24 lg:pr-10 lg:pb-12 hover:bg-blue-700 hover:text-white sm:pl-10 sm:pb-4 sm:pr-4 2xl:pt-5 2xl:pl-24 2xl:pr-10 2xl:pb-5 xl:pl-24 xl:pt-5 xl:pr-10 xl:pb-5 text-right ..."
                 onClick={ef}
               >
                 Logout

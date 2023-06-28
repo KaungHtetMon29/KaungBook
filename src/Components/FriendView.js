@@ -2,23 +2,24 @@ import React, { useEffect, useState } from "react";
 import usericon from "../Assets/imgs/user.png";
 import avatar from "../Assets/imgs/avatar.png";
 import plus from "../Assets/imgs/plus.png";
+import "../Assets/Styles/Friendrender.css";
 
 function FriendView({ name }) {
   return (
-    <div className="w-1/2 relative p-2">
-      <div className="flex flex-col rounded-xl">
-        <div className=" bg-white rounded-full ml-2 absolute mt-32 shadow-md flex ...">
+    <div className="w-1/2 p-1">
+      <div className="flex flex-col relative rounded-xl ...">
+        <div className=" bg-white rounded-full absolute bottom-0 shadow-md flex left-0 right-0 m-auto w-fit ...">
           <div className="p-1">
-            <img src={usericon} className="w-6" />
+            <img src={usericon} className="w-5" />
           </div>
 
-          <div className="items-center flex text-xs justify-center ...">
-            <p className="p-1 text-center font-medium tracking-wide  text-black  ...">
+          <div className="items-center flex text-xs justify-center grow ...">
+            <p className="text-center tracking-wide name text-black pr-1 ...">
               {name}
             </p>
           </div>
           <div className=" bg-blue-600 p-1 flex justify-center items-center rounded-full ...">
-            <img src={plus} className="w-6 p-1" />
+            <img src={plus} className="w-5 p-1" />
           </div>
         </div>
 
