@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import "animate.css";
 import "../Assets/Styles/siginin.css";
 import usericon from "../Assets/imgs/search.png";
+import { postData } from "../Middleware/api";
 
 function Signin({ setgetin, setregist, buff, friposts }) {
   const URL = process.env.REACT_APP_PUBLIC_URL;
   const [signin, setsignin] = useState({
-    name: "",
+    email: "",
     pw: "",
   });
 
@@ -14,7 +15,7 @@ function Signin({ setgetin, setregist, buff, friposts }) {
     name: "",
   });
   const onEmailchange = (e) => {
-    signin.name = e.target.value;
+    signin.email = e.target.value;
   };
   const onPwchange = (e) => {
     signin.pw = e.target.value;
@@ -25,85 +26,43 @@ function Signin({ setgetin, setregist, buff, friposts }) {
   };
 
   const click = () => {
-    //node-server-1ag1.onrender.com
-    fetch(`${URL}signin`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: signin.name,
-        pw: signin.pw,
-      }),
-    })
-      .then((Response) => Response.json())
-      .then((data) => {
-        if (data.status === true) {
-          setgetin();
-          setregist();
-          dbbuff.name = data.name;
-          console.log(dbbuff);
+    postData(`${URL}signin`, signin).then((data) => {
+      if (data.status === true) {
+        setgetin();
+        setregist();
+        dbbuff.name = data.name;
 
-          sessionStorage.setItem("getin", "true");
-          sessionStorage.setItem("username", dbbuff.name);
-          sessionStorage.setItem("signinname", signin.name);
-          fetch(`${URL}profile`, {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: data.name,
-            }),
+        sessionStorage.setItem("getin", "true");
+        sessionStorage.setItem("username", dbbuff.name);
+        sessionStorage.setItem("signinname", signin.email);
+        console.log(dbbuff);
+        postData(`${URL}profile`, data).then((data) =>
+          postData(`${URL}friposts`, signin).then((fposts) => {
+            buff(data.data, data.cmt);
+
+            friposts(fposts);
+            console.log(data.data.length);
           })
-            .then((res) => res.json())
-            .then((pdata) =>
-              fetch(`${URL}friposts`, {
-                method: "post",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  name: signin.name,
-                }),
-              })
-                .then((res) => res.json("good"))
-                .then((fposts) => {
-                  buff(pdata.data, pdata.cmt);
-
-                  friposts(fposts);
-                  console.log(pdata.data.length);
-                })
-            );
-        } else {
-          alert("Please check name and password ");
-          window.location.reload(true);
-        }
-      });
+        );
+      } else {
+        alert("Please check name and password ");
+        window.location.reload(true);
+      }
+    });
   };
   useEffect(() => {
     const isloggedin = sessionStorage.getItem("getin");
     if (isloggedin === "true") {
       dbbuff.name = sessionStorage.getItem("username");
-      signin.name = sessionStorage.getItem("signinname");
-      console.log(signin);
-      fetch(`${URL}profile`, {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: dbbuff.name,
-        }),
-      })
-        .then((res) => res.json())
-        .then((pdata) => {
-          fetch(`${URL}friposts`, {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: signin.name,
-            }),
-          })
-            .then((res) => res.json("good"))
-            .then((fposts) => {
-              console.log(pdata);
-              buff(pdata.data, pdata.cmt);
-              friposts(fposts);
-            });
+      signin.email = sessionStorage.getItem("signinname");
+      console.log(sessionStorage.getItem("signinname"));
+      postData(`${URL}profile`, dbbuff).then((pdata) => {
+        postData(`${URL}friposts`, signin).then((fposts) => {
+          console.log(pdata);
+          buff(pdata.data, pdata.cmt);
+          friposts(fposts);
         });
+      });
     }
   }, []);
   return (
