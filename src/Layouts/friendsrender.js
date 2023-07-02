@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import FriendView from "../Components/FriendView";
+import { getData } from "../Middleware/api";
 
 function Friendrender() {
   const [friends, setfriends] = useState([]);
   const URL = process.env.REACT_APP_PUBLIC_URL;
   const fetchdata = async () => {
     try {
-      const res = await fetch(`${URL}viewfriends`);
-      const data = await res.json();
-      setfriends([...friends, ...data]);
+      getData(`${URL}viewfriends`).then((data) => {
+        setfriends([...friends, ...data]);
+      });
+      // const res = await fetch(`${URL}viewfriends`);
+      // const data = await res.json();
     } catch (error) {
       console.log(error);
     }

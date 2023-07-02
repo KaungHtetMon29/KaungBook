@@ -4,24 +4,32 @@ import usericon from "../Assets/imgs/user.png";
 import locationicon from "../Assets/imgs/location.png";
 import feelingicon from "../Assets/imgs/happy-face.png";
 import "../Assets/Styles/post.css";
+import { postData } from "../Middleware/api";
 
 function Postscreen({ name, chg }) {
   const URL = process.env.REACT_APP_PUBLIC_URL;
-  const [status, setstatus] = useState();
+  const [userpost, setuserpost] = useState({
+    name: "",
+    status: "",
+  });
   const post = (e) => {
-    setstatus(e.target.value);
+    setuserpost({
+      name: name,
+      status: e.target.value,
+    });
     console.log(e.target.value);
   };
   const upload = () => {
-    fetch(`${URL}feedupload`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        post: status,
-      }),
-    })
-      .then((res) => res.json())
+    postData(`${URL}feedupload`, userpost)
+      // fetch(`${URL}feedupload`, {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     name: name,
+      //     post: status,
+      //   }),
+      // })
+      //   .then((res) => res.json())
       .then((data) => {
         if (data !== "Type something in your mind") {
           document.getElementById("textform").value = "";

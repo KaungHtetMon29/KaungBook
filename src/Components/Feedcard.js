@@ -6,6 +6,7 @@ import love from "../Assets/imgs/thumbs-up.png";
 import heart from "../Assets/imgs/heart.png";
 import plus from "../Assets/imgs/plus.png";
 import "../Assets/Styles/feedcardanimation.css";
+import { postData } from "../Middleware/api";
 
 function Feedcard({ obj, profile, reacter }) {
   const URL = process.env.REACT_APP_PUBLIC_URL;
@@ -23,33 +24,34 @@ function Feedcard({ obj, profile, reacter }) {
     console.log(reacter);
   };
   const dbupdate = (input) => {
-    fetch(`${URL}reaction`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: obj.id,
-        react: input,
-      }),
-    })
-      .then((response) => response.json())
+    postData(`${URL}reaction`, { id: obj.id, react: input })
+      // fetch(`${URL}reaction`, {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     id: obj.id,
+      //     react: input,
+      //   }),
+      // })
+      //   .then((response) => response.json())
       .then((data) => console.log(data));
   };
 
   const cmtdbupdate = () => {
     console.log(reacter);
-    fetch(`${URL}cmt`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: obj.id,
-        cmter: reacter,
-        cmt: comment,
-      }),
-    })
-      .then((response) => response.json())
+    postData(`${URL}cmt`, { id: obj.id, cmter: reacter, cmt: comment })
+      // fetch(`${URL}cmt`, {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     id: obj.id,
+      //     cmter: reacter,
+      //     cmt: comment,
+      //   }),
+      // })
+      //   .then((response) => response.json())
       .then((data) => console.log(data));
   };
-  const fetchcmt = () => {};
   const reactionupdate = () => {
     setenable(!enable);
   };
@@ -62,14 +64,15 @@ function Feedcard({ obj, profile, reacter }) {
     }
   };
   useEffect(() => {
-    fetch(`${URL}cmtupdate`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: obj.id,
-      }),
-    })
-      .then((respond) => respond.json())
+    postData(`${URL}cmtupdate`, obj)
+      // fetch(`${URL}cmtupdate`, {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     id: obj.id,
+      //   }),
+      // })
+      //   .then((respond) => respond.json())
       .then((data) => {
         data.map((f) => {
           cmts.push(f);
@@ -193,7 +196,6 @@ function Feedcard({ obj, profile, reacter }) {
               className="text-center lg:px-10 lg:py-5 2xl:py-2 xl:py-2 lg:border-r-2 2xl:border-r-1 sm:border-r-2 border-gray-300 sm:px-5 sm:py-1 w-1/3 hover:bg-blue-500 ..."
               onClick={() => {
                 cmtupdate();
-                fetchcmt();
               }}
             >
               cmt

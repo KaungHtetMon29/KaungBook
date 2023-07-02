@@ -52,18 +52,20 @@ function Signin({ setgetin, setregist, buff, friposts }) {
   };
   useEffect(() => {
     const isloggedin = sessionStorage.getItem("getin");
-    if (isloggedin === "true") {
-      dbbuff.name = sessionStorage.getItem("username");
-      signin.email = sessionStorage.getItem("signinname");
-      console.log(sessionStorage.getItem("signinname"));
-      postData(`${URL}profile`, dbbuff).then((pdata) => {
-        postData(`${URL}friposts`, signin).then((fposts) => {
-          console.log(pdata);
-          buff(pdata.data, pdata.cmt);
-          friposts(fposts);
+    setInterval(() => {
+      if (isloggedin === "true") {
+        dbbuff.name = sessionStorage.getItem("username");
+        signin.email = sessionStorage.getItem("signinname");
+        console.log(sessionStorage.getItem("signinname"));
+        postData(`${URL}profile`, dbbuff).then((pdata) => {
+          postData(`${URL}friposts`, signin).then((fposts) => {
+            console.log(pdata);
+            buff(pdata.data, pdata.cmt);
+            friposts(fposts);
+          });
         });
-      });
-    }
+      }
+    }, 1000);
   }, []);
   return (
     <div className="shadow-md lg:m-auto lg:w-1/2 2xl:m-auto 2xl:w-3/12 xl:w-4/12 lg:text-4xl 2xl:text-base xl:text-2xl xl:m-auto sm:m-auto sm:mt-10 sm:w-3/4 sm:text-base bg-slate-200 lg:rounded-3xl sm:rounded-xl lg:my-96 2xl:mt-10 xl:mt-10 sm:my-20 flex flex-col justify-center animate__animated animate__fadeIn ">

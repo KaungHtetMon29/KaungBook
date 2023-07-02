@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { postData } from "../Middleware/api";
 
 function Regist({ setregist, buff }) {
   const URL = process.env.REACT_APP_PUBLIC_URL;
@@ -18,18 +19,20 @@ function Regist({ setregist, buff }) {
   };
   const click = () => {
     buff(register);
-    fetch(`${URL}register`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: register.email,
-        name: register.name,
-        pw: register.pw,
-      }),
-    }).then((res) => {
-      alert("successfully registered");
-      setregist();
-    });
+    postData(`${URL}register`, register)
+      // fetch(`${URL}register`, {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     email: register.email,
+      //     name: register.name,
+      //     pw: register.pw,
+      //   }),
+      // })
+      .then((res) => {
+        alert("successfully registered");
+        setregist();
+      });
   };
 
   return (
