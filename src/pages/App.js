@@ -179,7 +179,7 @@ function App() {
       const updated = friends.concat(data[0]);
       setfriends(updated);
 
-      console.log(data[0]);
+      console.log(friends);
     });
   }, [socket]);
   return (
