@@ -22,7 +22,8 @@ import Postscreen from "./Postscreen";
 import { useBeforeUnload } from "react-router-dom";
 import { Co2Sharp } from "@mui/icons-material";
 import Friendrender from "../Layouts/friendsrender";
-
+import io from "socket.io-client";
+const socket = io.connect("http://localhost:3000");
 // import './app.css';
 // const mapStateToProps=(state)=>{
 
@@ -34,6 +35,10 @@ import Friendrender from "../Layouts/friendsrender";
 // }
 
 function App() {
+  const sendmsg = () => {
+    // socket.emit();
+  };
+
   const feeds = useSelector((state) => state.feeds);
   const notification = useSelector((state) => state.noti);
   const msg = useSelector((state) => state.msg);
@@ -80,15 +85,6 @@ function App() {
     }
 
     setmode("home");
-    //regist or siginin check
-    // console.log(Object.keys(obj).length)
-    // if(Object.keys(obj).length>1){
-    // user.name=obj[0].name;
-    // obj.map((f)=>{user.feeds.push(f)})
-    // setmode("home");
-    // }else{
-    //   user.name=obj.name;obj.map((f)=>{user.feeds.push(f)})
-    // }
   };
   const regitstbuff = (obj) => {
     user.name = obj.name;
@@ -171,13 +167,18 @@ function App() {
     }
   };
   let Closed = false;
-  useBeforeUnload();
+
   useEffect(() => {
     const isloggedin = sessionStorage.getItem("getin");
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
-  }, []);
+    socket.on("latestpost", (data) => {
+      const updatearray = [...friends, data[0]];
+      setfriends(updatearray);
+      console.log(data[0]);
+    });
+  }, [socket]);
   return (
     <div>
       <NavBar
