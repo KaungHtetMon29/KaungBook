@@ -23,7 +23,8 @@ import { useBeforeUnload } from "react-router-dom";
 import { Co2Sharp } from "@mui/icons-material";
 import Friendrender from "../Layouts/friendsrender";
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3000");
+const socket = io.connect("https://node-server-1ag1.onrender.com");
+// const socket = io.connect("http://localhost:3000");
 // import './app.css';
 // const mapStateToProps=(state)=>{
 
@@ -174,8 +175,11 @@ function App() {
       dispatch(changegetin(true));
     }
     socket.on("latestpost", (data) => {
-      const updatearray = [...friends, data[0]];
-      setfriends(updatearray);
+      if (data[0].name !== user.name) {
+        const updatearray = [...friends, data[0]];
+
+        setfriends(updatearray);
+      }
       console.log(data[0]);
     });
   }, [socket]);
