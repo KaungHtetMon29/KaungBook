@@ -177,7 +177,7 @@ function App() {
       // const updatearray = [...friends, data[0]];
       // setfriends(updatearray);
 
-      setfriends([...friends, ...data[0]]);
+      setfriends([...friends, data[0]]);
       console.log(friends);
     });
   }, [socket]);
