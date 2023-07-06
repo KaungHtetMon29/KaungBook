@@ -174,10 +174,9 @@ function App() {
       dispatch(changegetin(true));
     }
     socket.on("latestpost", (data) => {
-      // setfriends(updatearray);
-      friends.push(data[0]);
-      setfriends(friends);
-      console.log(friends);
+      const updatearray = [...friends, data[0]];
+      setfriends(updatearray);
+      console.log(updatearray);
     });
   }, [socket]);
   return (
