@@ -180,7 +180,6 @@ function App() {
       updatearray.push(data[0]);
       setfriends(updatearray);
       console.log(friends);
-      <Feeds feed={friends} reacter={user.name} />;
     });
   }, [socket]);
   return (
