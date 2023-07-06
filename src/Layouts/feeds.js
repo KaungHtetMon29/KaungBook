@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Feedcard from "../Components/Feedcard";
 import "../Assets/Styles/feedview.css";
 
 function Feeds({ feed, reacter }) {
+  const [feedstate, setfeedstate] = useState(feed);
   return (
     <div className="lg:mb-72 2xl:mb-5 xl:mb-8 sm:mb-24 ">
-      {feed.length ? (
-        feed.map((f) => {
+      {feedstate.length ? (
+        feedstate.map((f) => {
           return <Feedcard obj={f} key={f.id} reacter={reacter} />;
         })
       ) : (
