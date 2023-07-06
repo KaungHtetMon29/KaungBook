@@ -176,9 +176,8 @@ function App() {
     socket.on("latestpost", (data) => {
       // const updatearray = [...friends, data[0]];
       // setfriends(updatearray);
-      friends.push(data[0]);
-      setfriends(friends);
-      <Feeds feed={friends} reacter={user.name} />;
+
+      setfriends([...friends, ...data[0]]);
       console.log(friends);
     });
   }, [socket]);
