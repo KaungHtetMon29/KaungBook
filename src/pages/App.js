@@ -175,7 +175,8 @@ function App() {
       dispatch(changegetin(true));
     }
     socket.on("latestpost", (data) => {
-      friends.push(data[0]);
+      const updatearray = [...friends, data[0]];
+      setfriends(updatearray);
       console.log(`data is here ${data}`);
     });
   }, [socket]);
