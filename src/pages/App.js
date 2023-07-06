@@ -177,6 +177,7 @@ function App() {
       // const updatearray = [...friends, data[0]];
       // setfriends(updatearray);
       friends.push(data[0]);
+      setfriends(friends);
       <Feeds feed={friends} reacter={user.name} />;
       console.log(friends);
     });
