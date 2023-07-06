@@ -180,7 +180,7 @@ function App() {
       // updatearray.push(data[0]);
       // setfriends(updatearray);
       // console.log(friends);
-      // <Feeds feed={friends} reacter={user.name} />;
+      <Feeds feed={friends} reacter={user.name} />;
       // window.location.reload(false);
     });
   }, [socket]);
