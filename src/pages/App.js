@@ -93,7 +93,6 @@ function App() {
   };
 
   const bufferfriposts = (obj) => {
-    friends.length = 0;
     console.log(obj);
     obj.map((f) => {
       friends.push(f);
