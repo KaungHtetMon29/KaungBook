@@ -175,12 +175,9 @@ function App() {
       dispatch(changegetin(true));
     }
     socket.on("latestpost", (data) => {
-      if (data[0].name !== user.name) {
-        const updatearray = [...friends, data[0]];
-
-        setfriends(updatearray);
-      }
-      console.log(data[0]);
+      const updatearray = [...friends, data[0]];
+      setfriends(updatearray);
+      console.log(`data is here ${data}`);
     });
   }, [socket]);
   return (
