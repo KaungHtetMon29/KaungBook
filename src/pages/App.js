@@ -173,13 +173,14 @@ function App() {
     if (isloggedin === "true") {
       dispatch(changegetin(true));
     }
+  }, []);
+  useEffect(() => {
     socket.on("latestpost", (data) => {
       // const updatearray = [...friends, data[0]];
       // setfriends(updatearray);
       setfriends((prevarray) => [...prevarray, data[0]]);
-
-      console.log(friends);
     });
+    console.log(friends);
   }, [socket]);
   return (
     <div>
