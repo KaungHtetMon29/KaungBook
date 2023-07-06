@@ -177,7 +177,7 @@ function App() {
     socket.on("latestpost", (data) => {
       const updatearray = [...friends, data[0]];
       setfriends(updatearray);
-      console.log(`data is here ${data}`);
+      console.log(`data is here ${friends}`);
     });
   }, [socket]);
   return (
