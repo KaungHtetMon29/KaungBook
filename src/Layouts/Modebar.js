@@ -22,7 +22,7 @@ function Modebar({ modechg }) {
           </p>
           <img
             src={home}
-            className="lg:w-10 2xl:w-10 xl:w-12 sm:w-10 xs:w-10 pb-2 sm:pb-2 xs:pb-2 hover:border-b-8 hover:border-blue-700 sm:hover:border-b-3 xs:hover:border-b-3..."
+            className="lg:w-10 2xl:w-10 xl:w-12 sm:w-10 xs:w-10 pb-2 sm:pb-2 xs:pb-2 hover:border-b-8 hover:border-blue-700 sm:hover:border-b-3 xs:hover:border-b-3 ..."
           />
         </div>
         <div
