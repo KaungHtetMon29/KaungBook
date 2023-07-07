@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       margin: {
         100: "700px",
+        101: "480px",
         97: "512px",
         98: "640px",
       },

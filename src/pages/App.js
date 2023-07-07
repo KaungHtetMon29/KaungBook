@@ -23,7 +23,7 @@ import { useBeforeUnload } from "react-router-dom";
 import { Co2Sharp } from "@mui/icons-material";
 import Friendrender from "../Layouts/friendsrender";
 import io from "socket.io-client";
-const socket = io.connect("https://node-server-1ag1.onrender.com");
+// const socket = io.connect("https://node-server-1ag1.onrender.com");
 // const socket = io.connect("http://localhost:3000");
 // import './app.css';
 // const mapStateToProps=(state)=>{
