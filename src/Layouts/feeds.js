@@ -5,7 +5,7 @@ import "../Assets/Styles/feedview.css";
 function Feeds({ feed, reacter }) {
   const [feedstate, setfeedstate] = useState(feed);
   return (
-    <div className="lg:mb-5 2xl:mb-5 xl:mb-8 sm:mb-24 ">
+    <div className="lg:mb-5 2xl:mb-5 xl:mb-8 sm:mb-24 xs:mb-24 ">
       {feedstate.length ? (
         feedstate.map((f) => {
           return <Feedcard obj={f} key={f.id} reacter={reacter} />;

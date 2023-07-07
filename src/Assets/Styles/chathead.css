@@ -26,3 +26,10 @@
         border-radius: 100%;
     }
 }
+@media only screen and (min-width:360px){
+    .dot{
+        height: 1rem;
+        width: 1rem;
+        border-radius: 100%;
+    }
+}
